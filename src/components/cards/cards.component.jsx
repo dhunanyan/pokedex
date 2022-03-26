@@ -1,8 +1,11 @@
+import { useState } from "react";
+
+import { selectIsCardFetching } from "../../redux/cards/cards.selectors";
+
 import Card from "../card/card.component";
 
 import {
   CardsContainer,
-  CardsContainerAnimation,
   CardsEmptyMessage,
   CardsWrapper,
   LoadButton,
@@ -13,9 +16,8 @@ import { Wrapper } from "../../global.styles";
 
 import { HiArrowSmDown as Arrow } from "react-icons/hi";
 import { CSSTransition } from "react-transition-group";
-import { useState } from "react";
 
-import "./card.animations.scss";
+import "./cards.animations.scss";
 
 const Cards = ({
   nameField,
@@ -25,17 +27,6 @@ const Cards = ({
   pokemons,
   loadMore,
 }) => {
-  //   .filter((card) =>
-  //   (selectedType[0] !== "all"
-  //     ? card.types.some(
-  //         (currentType) => currentType.type.name === selectedType[0]
-  //       ) === true
-  //     : true) &&
-  //   (selectedType[1] !== "" ? card.name.includes(selectedType[1]) : true)
-  //     ? card
-  //     : false
-  // )
-  // : []
   const [pokemonsChange, setPokemonsChange] = useState(false);
 
   const filteredPokemons = pokemons.filter(
@@ -53,11 +44,12 @@ const Cards = ({
         : pokemon.height >= heightField.start &&
           pokemon.height <= heightField.end)
   );
+
   return (
     <Wrapper>
-      <CardsWrapper className="pokemons">
+      <CardsWrapper>
         {filteredPokemons.length ? (
-          <CardsContainer className="pokemons-list">
+          <CardsContainer className="pokemons">
             {filteredPokemons.map((pokemon) => (
               <CSSTransition
                 in={pokemonsChange}
@@ -66,7 +58,11 @@ const Cards = ({
                 unmountOnExit
                 key={pokemon.id}
               >
-                <Card pokemon={pokemon} key={pokemon.id} />
+                <Card
+                  pokemon={pokemon}
+                  pokemonId={pokemon.id}
+                  key={pokemon.id}
+                />
               </CSSTransition>
             ))}
           </CardsContainer>

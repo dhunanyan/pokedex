@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { MdExpandMore as Arrow } from "react-icons/md";
 
 export const SearchHeaderFixed = styled.div`
   width: calc(100% - 90px);
@@ -43,7 +42,7 @@ export const SearchHeaderAdvancedButtonContainer = styled.div`
   transition: all 150ms ease-out;
   cursor: pointer;
   position: absolute;
-  bottom: -25px;
+  bottom: -40px;
   right: -70px;
   z-index: 90000000000000;
 `;
@@ -53,6 +52,8 @@ export const SearchHeaderAdvancedButton = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   overflow: hidden;
   position: relative;
   margin: 15px auto 0 auto;
@@ -61,6 +62,7 @@ export const SearchHeaderAdvancedButton = styled.button`
   width: 50px;
   height: 50px;
   box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+  background-color: #e0e0e0;
 
   svg {
     font-size: 32px;
@@ -71,7 +73,8 @@ export const SearchHeaderAdvancedButton = styled.button`
     width: 160px;
     border-radius: 10px;
     color: #f1f1f1;
-    background-color: #303030;
+    background-color: #648ad4;
+    box-shadow: -6px -6px 20px rgba(122, 122, 122, 0.2);
 
     p {
       animation: showLoadButtonText 150ms ease-out 160ms forwards;
@@ -106,12 +109,15 @@ export const SearchHeaderAdvancedButtonText = styled.p`
   transform: translate(-50%, -50%);
   opacity: 0;
   width: 100%;
+  font-weight: 500;
 `;
 
-export const SearchHeaderAdvancedIcon = styled(Arrow)`
-  transition: all 250ms ease-out;
-  transform: ${({ showAdvancedSearch }) =>
-    showAdvancedSearch ? "rotate(180deg)" : "rotate(0)"};
+export const SearchHeaderAdvancedIconContainer = styled.div`
+  svg {
+    transition: all 250ms ease-out;
+    transform: ${({ showAdvancedSearch }) =>
+      showAdvancedSearch ? "rotate(180deg)" : "rotate(0)"};
+  }
 `;
 
 export const SearchHeaderToggle = styled.div`

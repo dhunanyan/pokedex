@@ -5,10 +5,12 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 `;
 
 export const Wrapper = styled.div`
   max-width: calc(1300px - 60px);
   margin: 0 auto 0 auto;
   padding: 30px;
+  overflow-x: hidden;
 `;

@@ -7,6 +7,7 @@ export const CardsWrapper = styled.div`
   height: 100%;
   transition: all 250ms ease-out;
   padding: 70px 0 0 0;
+  overflow: hidden;
 `;
 
 export const CardsContainer = styled(TransitionGroup)`
@@ -25,7 +26,7 @@ export const CardsEmptyMessage = styled.p`
   align-items: center;
   height: 100%;
   color: #303030;
-  margin: 60px auto;
+  margin: 120px auto;
   padding: 20px;
   border-radius: 20px;
   background: linear-gradient(

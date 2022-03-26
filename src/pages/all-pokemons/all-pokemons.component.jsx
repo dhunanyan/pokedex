@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { AllPokemonsContainer } from "./all-pokemons.styles";
-import Cards from "../../components/cards/cards.component";
 import { useDispatch, useSelector } from "react-redux";
+
 import { selectCardsForPreview } from "../../redux/cards/cards.selectors";
 import { fetchCardsStart } from "../../redux/cards/cards.actions";
-import { SearchBox } from "../../components/search-box/search-box.component";
+
 import SearchHeader from "../../components/search-header/search-header.component";
+import Cards from "../../components/cards/cards.component";
+
+import { AllPokemonsContainer } from "./all-pokemons.styles";
 
 const AllPokemons = () => {
   const [nameField, setNameField] = useState("");

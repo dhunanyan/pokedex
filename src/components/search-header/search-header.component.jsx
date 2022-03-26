@@ -5,6 +5,7 @@ import {
   SearchHeaderAdvancedButtonContainer,
   SearchHeaderAdvancedButtonText,
   SearchHeaderAdvancedIcon,
+  SearchHeaderAdvancedIconContainer,
   SearchHeaderContainer,
   SearchHeaderFixed,
   SearchHeaderMain,
@@ -12,6 +13,8 @@ import {
   SearchHeaderToggleInner,
   SearchHeaderWrapper,
 } from "./search-header.styles.jsx";
+
+import { MdExpandMore as Arrow } from "react-icons/md";
 
 import { CSSTransition } from "react-transition-group";
 
@@ -36,9 +39,13 @@ const SearchHeader = ({
               setShowAdvancedSearch((showAdvancedSearch) => !showAdvancedSearch)
             }
           >
-            <SearchHeaderAdvancedIcon showAdvancedSearch={showAdvancedSearch} />
+            <SearchHeaderAdvancedIconContainer
+              showAdvancedSearch={showAdvancedSearch}
+            >
+              <Arrow />
+            </SearchHeaderAdvancedIconContainer>
             <SearchHeaderAdvancedButtonText>
-              Advanced search
+              {showAdvancedSearch ? "Standard search" : "Advanced search"}
             </SearchHeaderAdvancedButtonText>
           </SearchHeaderAdvancedButton>
         </SearchHeaderAdvancedButtonContainer>

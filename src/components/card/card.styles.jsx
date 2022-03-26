@@ -1,9 +1,22 @@
 import styled from "styled-components";
 
-export const CardWrapper = styled.div`
+export const CardLoadingContainer = styled.div`
   height: 300px;
   max-width: 100%;
   min-width: 270px;
+  border-radius: 20px;
+  margin: 15px;
+  flex-grow: 100;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CardWrapper = styled.div`
+  height: 300px;
+  max-width: 100%;
+  width: 270px;
   border-radius: 20px;
   margin: 15px;
   flex-grow: 100;
@@ -14,6 +27,9 @@ export const CardWrapper = styled.div`
     rgba(248, 248, 248, 0.5)
   );
   box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CardContainer = styled.div`
