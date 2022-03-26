@@ -61,11 +61,13 @@ export const CardImg = styled.div`
   background-size: cover;
   background-repeat: repeat;
   position: absolute;
+  max-width: 350px;
+  margin: auto;
   top: -40px;
   left: 20px;
   right: 20px;
   bottom: 20px;
-  transform: scale(0.8);
+  transform: scale(1);
   transition: all 200ms ease-out;
   pointer-events: none;
 `;

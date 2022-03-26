@@ -1,13 +1,12 @@
 import React from "react";
-import { CustomInput, SearchBoxContainer } from "./search-box.styles";
+import { CustomInput } from "./search-box.styles";
 
-export const SearchBox = ({ placeholder, handleChange }) => (
-  <SearchBoxContainer>
-    <CustomInput
-      className="search"
-      type="search"
-      placeholder={placeholder}
-      onChange={handleChange}
-    />
-  </SearchBoxContainer>
+export const SearchBox = ({ placeholder, handleChange, type, min }) => (
+  <CustomInput
+    className="search"
+    type={type}
+    placeholder={placeholder}
+    onChange={handleChange}
+    min={min}
+  />
 );

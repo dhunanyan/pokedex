@@ -1,0 +1,17 @@
+.advancedSearch-enter {
+  opacity: 0;
+  transform: translate(0, -150px);
+}
+.advancedSearch-enter-active {
+  opacity: 1;
+  transform: translate(0);
+  transition: opacity 250ms, transform 250ms;
+}
+.advancedSearch-exit {
+  opacity: 1;
+}
+.advancedSearch-exit-active {
+  opacity: 0;
+  transform: translate(0, -150px);
+  transition: opacity 250ms, transform 250ms;
+}

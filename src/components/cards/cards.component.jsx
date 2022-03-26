@@ -1,7 +1,6 @@
 import Card from "../card/card.component";
 
 import {
-  CardsAnimation,
   CardsContainer,
   CardsContainerAnimation,
   CardsEmptyMessage,
@@ -15,9 +14,17 @@ import { Wrapper } from "../../global.styles";
 import { HiArrowSmDown as Arrow } from "react-icons/hi";
 import { CSSTransition } from "react-transition-group";
 import { useState } from "react";
-import { TransitionGroup } from "react-transition-group";
 
-const Cards = ({ searchField, pokemons, loadMore }) => {
+import "./card.animations.scss";
+
+const Cards = ({
+  nameField,
+  typeField,
+  weightField,
+  heightField,
+  pokemons,
+  loadMore,
+}) => {
   //   .filter((card) =>
   //   (selectedType[0] !== "all"
   //     ? card.types.some(
@@ -31,8 +38,20 @@ const Cards = ({ searchField, pokemons, loadMore }) => {
   // : []
   const [pokemonsChange, setPokemonsChange] = useState(false);
 
-  const filteredPokemons = pokemons.filter((pokemon) =>
-    pokemon.name.includes(searchField.toLowerCase())
+  const filteredPokemons = pokemons.filter(
+    (pokemon) =>
+      pokemon.name.includes(nameField.toLowerCase()) &&
+      pokemon.types.some((currentType) =>
+        currentType.type.name.includes(typeField.toLowerCase())
+      ) &&
+      (weightField.end === ""
+        ? true
+        : pokemon.weight >= weightField.start &&
+          pokemon.weight <= weightField.end) &&
+      (heightField.end === ""
+        ? true
+        : pokemon.height >= heightField.start &&
+          pokemon.height <= heightField.end)
   );
   return (
     <Wrapper>
@@ -47,14 +66,14 @@ const Cards = ({ searchField, pokemons, loadMore }) => {
                 unmountOnExit
                 key={pokemon.id}
               >
-                <CardsAnimation pokemon={pokemon} />
+                <Card pokemon={pokemon} key={pokemon.id} />
               </CSSTransition>
             ))}
           </CardsContainer>
         ) : (
           <CardsEmptyMessage>
-            No result found, try to change your searching filters or load some
-            more pokemons.
+            No result found, try to change your searching filters or load more
+            pokemons.
           </CardsEmptyMessage>
         )}
       </CardsWrapper>

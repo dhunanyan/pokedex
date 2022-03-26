@@ -1,21 +1,5 @@
 import styled from "styled-components";
 
-export const SearchBoxContainer = styled.div`
-  width: calc(100% - 90px);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
-  position: fixed;
-  padding: 20px 45px;
-  background-color: #4267b2;
-  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
-
-  z-index: 100;
-
-  &:hover {
-  }
-`;
-
 export const CustomInput = styled.input`
   font-size: 24px;
   width: 100%;
@@ -31,6 +15,15 @@ export const CustomInput = styled.input`
   box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
   position: relative;
   z-index: 2;
+  height: 52px;
+
+  &:first-of-type {
+    margin: 0 25px 0 0;
+  }
+
+  &:last-of-type {
+    margin: 0 0 0 25px;
+  }
 
   &::placeholder {
     font-weight: 700;

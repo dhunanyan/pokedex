@@ -24,7 +24,7 @@ const Card = ({ pokemon }) => {
   const imageUrl = sprites.other["official-artwork"].front_default;
 
   const [showDetails, setShowDetails] = useState(false);
-  const [appearDetails, setAppearDetails] = useState(false);
+
   return (
     <CardWrapper>
       <CSSTransition

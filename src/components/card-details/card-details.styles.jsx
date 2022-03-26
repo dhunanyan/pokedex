@@ -104,7 +104,7 @@ export const CardStat = styled.li`
     position: absolute;
     left: -1px;
     top: 0;
-    width: ${({ perc }) => `${parseInt(perc) / 2.4}%`};
+    width: ${({ perc }) => `${parseInt(perc) / 1.8}%`};
     height: 100%;
     background-color: rgba(66, 103, 178, 0.75);
     z-index: 0;
