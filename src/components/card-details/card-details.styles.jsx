@@ -96,15 +96,31 @@ export const CardStat = styled.li`
   justify-content: space-between;
   align-items: center;
   margin: 5px;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: ${({ perc }) => `${parseInt(perc) / 2.4}%`};
+    height: 100%;
+    background-color: rgba(66, 103, 178, 0.75);
+    z-index: 0;
+  }
 `;
 
 export const CardStatTitle = styled.h3`
   font-size: 14px;
+  z-index: 1;
+  font-weight: 500;
 `;
 
 export const CardStatDescr = styled.h3`
   font-size: 16px;
   font-weight: 700;
+  z-index: 1;
 `;
 
 export const CardDetailsMain = styled.div`

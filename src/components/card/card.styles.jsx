@@ -41,6 +41,20 @@ export const CardContainer = styled.div`
   }
 `;
 
+export const CardId = styled.p`
+  font-size: 26px;
+  font-weight: 900;
+  padding: 10px;
+  color: #303030;
+  background-color: rgba(248, 248, 248, 0.5);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 5;
+`;
+
 export const CardImg = styled.div`
   background-image: ${({ imageUrl }) => `url('${imageUrl}')`};
   background-position: center;

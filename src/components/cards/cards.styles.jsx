@@ -1,13 +1,43 @@
+import { CSSTransition } from "react-transition-group";
+import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
+import Card from "../card/card.component";
 
-export const CardsContainer = styled.div`
+export const CardsWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   height: 100%;
   transition: all 250ms ease-out;
   padding: 70px 0 0 0;
 `;
+
+export const CardsContainer = styled(TransitionGroup)`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  transition: all 250ms ease-out;
+
+  .pokemons-enter {
+    opacity: 0;
+    transform: scale(1.45) translate(0, -150px);
+  }
+  .pokemons-enter-active {
+    opacity: 1;
+    transform: scale(1) translate(0);
+    transition: opacity 250ms, transform 250ms;
+  }
+  .pokemons-exit {
+    opacity: 1;
+  }
+  .pokemons-exit-active {
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 250ms, transform 250ms;
+  }
+`;
+
+export const CardsAnimation = styled(Card)``;
 
 export const CardsEmptyMessage = styled.p`
   font-size: 28px;

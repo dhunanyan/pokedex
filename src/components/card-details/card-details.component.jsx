@@ -27,6 +27,7 @@ const CardDetails = ({
   imageUrl,
   pokemon,
   onClick,
+  appearDetails,
 }) => {
   const { moves, sprites, stats } = pokemon;
 
@@ -49,7 +50,7 @@ const CardDetails = ({
             <CardDetailsSideContent>
               <CardStats>
                 {stats.map((currentStat, index) => (
-                  <CardStat key={index}>
+                  <CardStat key={index} perc={currentStat.base_stat}>
                     <CardStatTitle>
                       {(
                         currentStat.stat.name[0].toUpperCase() +

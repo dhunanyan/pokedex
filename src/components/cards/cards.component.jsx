@@ -1,8 +1,11 @@
 import Card from "../card/card.component";
 
 import {
+  CardsAnimation,
   CardsContainer,
+  CardsContainerAnimation,
   CardsEmptyMessage,
+  CardsWrapper,
   LoadButton,
   LoadButtonContainer,
   LoadButtonText,
@@ -10,6 +13,9 @@ import {
 import { Wrapper } from "../../global.styles";
 
 import { HiArrowSmDown as Arrow } from "react-icons/hi";
+import { CSSTransition } from "react-transition-group";
+import { useState } from "react";
+import { TransitionGroup } from "react-transition-group";
 
 const Cards = ({ searchField, pokemons, loadMore }) => {
   //   .filter((card) =>
@@ -23,26 +29,42 @@ const Cards = ({ searchField, pokemons, loadMore }) => {
   //     : false
   // )
   // : []
+  const [pokemonsChange, setPokemonsChange] = useState(false);
 
   const filteredPokemons = pokemons.filter((pokemon) =>
     pokemon.name.includes(searchField.toLowerCase())
   );
   return (
     <Wrapper>
-      <CardsContainer className="pokemons">
+      <CardsWrapper className="pokemons">
         {filteredPokemons.length ? (
-          filteredPokemons.map((pokemon) => (
-            <Card pokemon={pokemon} key={pokemon.id} />
-          ))
+          <CardsContainer className="pokemons-list">
+            {filteredPokemons.map((pokemon) => (
+              <CSSTransition
+                in={pokemonsChange}
+                timeout={250}
+                classNames="pokemons"
+                unmountOnExit
+                key={pokemon.id}
+              >
+                <CardsAnimation pokemon={pokemon} />
+              </CSSTransition>
+            ))}
+          </CardsContainer>
         ) : (
           <CardsEmptyMessage>
-            No result found, try to change your searching filters or load more
-            pokemons.
+            No result found, try to change your searching filters or load some
+            more pokemons.
           </CardsEmptyMessage>
         )}
-      </CardsContainer>
+      </CardsWrapper>
       <LoadButtonContainer>
-        <LoadButton onClick={loadMore}>
+        <LoadButton
+          onClick={() => {
+            loadMore();
+            setPokemonsChange(true);
+          }}
+        >
           <Arrow />
           <LoadButtonText>Load more</LoadButtonText>
         </LoadButton>

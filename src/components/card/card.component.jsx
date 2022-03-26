@@ -4,6 +4,7 @@ import {
   CardContent,
   CardDetailsButton,
   CardDetailsText,
+  CardId,
   CardImg,
   CardItem,
   CardList,
@@ -13,17 +14,25 @@ import {
 
 import { MdOutlineMoreHoriz as Expand } from "react-icons/md";
 import CardDetails from "../card-details/card-details.component";
+import { CSSTransition } from "react-transition-group";
+
+import "./card.animations.scss";
 
 const Card = ({ pokemon }) => {
-  const { name, sprites, types, height, weight } = pokemon;
+  const { id, name, sprites, types, height, weight } = pokemon;
 
   const imageUrl = sprites.other["official-artwork"].front_default;
 
   const [showDetails, setShowDetails] = useState(false);
-
+  const [appearDetails, setAppearDetails] = useState(false);
   return (
     <CardWrapper>
-      {showDetails ? (
+      <CSSTransition
+        in={showDetails}
+        timeout={250}
+        classNames="details"
+        unmountOnExit
+      >
         <CardDetails
           pokemon={pokemon}
           name={name}
@@ -33,9 +42,10 @@ const Card = ({ pokemon }) => {
           weight={weight}
           onClick={() => setShowDetails(false)}
         />
-      ) : null}
+      </CSSTransition>
 
       <CardContainer>
+        <CardId>#{id}</CardId>
         <CardImg imageUrl={imageUrl} />
         <CardContent>
           <CardTitle>{name[0].toUpperCase() + name.substring(1)}</CardTitle>
@@ -52,7 +62,7 @@ const Card = ({ pokemon }) => {
           </CardList>
           <CardDetailsButton onClick={() => setShowDetails(true)}>
             <Expand />
-            <CardDetailsText>Show details</CardDetailsText>
+            <CardDetailsText>More details</CardDetailsText>
           </CardDetailsButton>
         </CardContent>
       </CardContainer>
