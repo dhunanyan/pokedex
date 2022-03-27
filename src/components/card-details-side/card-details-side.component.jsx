@@ -24,8 +24,6 @@ const CardDetailsSide = ({
   abilities,
   base_experience,
 }) => {
-  console.log(stats);
-
   return (
     <CardDetailsSideContainer>
       <CardDetailsTimes onClick={onClick}>

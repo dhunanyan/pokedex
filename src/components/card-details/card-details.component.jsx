@@ -32,8 +32,6 @@ const CardDetails = ({
     document.body.style.overflow = "hidden";
   }, [dispatch]);
 
-  console.log(statsDetails);
-
   return (
     <CardDetailsFixed>
       <CardDetailsWrapper>
@@ -57,7 +55,12 @@ const CardDetails = ({
             abilities={abilities}
             base_experience={base_experience}
           />
-          <CardDetailsMain held_items={held_items} moves={moves} name={name} />
+          <CardDetailsMain
+            held_items={held_items}
+            moves={moves}
+            name={name}
+            statsDetails={statsDetails}
+          />
         </CardDetailsContainer>
       </CardDetailsWrapper>
     </CardDetailsFixed>

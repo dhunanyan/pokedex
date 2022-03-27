@@ -25,7 +25,6 @@ export const CardDetailsItemsButton = styled.div`
   font-weight: 700;
   color: #fafae7;
   background-color: rgba(248, 248, 248, 0.5);
-
   transition: all 150ms ease-out;
 
   svg {

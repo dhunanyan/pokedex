@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   CardDetailsItem,
   CardDetailsItemsContainer,
@@ -6,12 +6,21 @@ import {
   CardDetailsMainSubitle,
   CardDetailsNoItem,
 } from "../../global.styles";
+import {
+  CardDetailsItemsButton,
+  CardDetailsItemsButtonContainer,
+  CardDetailsItemsWrapper,
+} from "./card-details-main-items.styles";
+
+import { IoIosArrowDown as Arrow } from "react-icons/io";
 
 export const CardDetailsItems = ({ map, objKey, name, message }) => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <CardDetailsItemsContainer>
-      <CardDetailsMainSubitle>{name}</CardDetailsMainSubitle>
-      <CardDetailsItemsList>
+      <CardDetailsMainSubitle name={name}>{name}</CardDetailsMainSubitle>
+      <CardDetailsItemsList showMore={showMore} name={name}>
         {map.length ? (
           map.map((currentItem) => (
             <CardDetailsItem>
@@ -23,6 +32,13 @@ export const CardDetailsItems = ({ map, objKey, name, message }) => {
           <CardDetailsNoItem>{message}</CardDetailsNoItem>
         )}
       </CardDetailsItemsList>
+      {map.length > 5 ? (
+        <CardDetailsItemsButtonContainer onClick={() => setShowMore(!showMore)}>
+          <CardDetailsItemsButton showMore={showMore}>
+            <Arrow />
+          </CardDetailsItemsButton>
+        </CardDetailsItemsButtonContainer>
+      ) : null}
     </CardDetailsItemsContainer>
   );
 };
