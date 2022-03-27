@@ -35,7 +35,6 @@ const AllPokemons = () => {
 
   const handleWeightEndChange = (event) => {
     setWeightField({ ...weightField, end: event.target.value });
-    console.log(event.target.value);
   };
 
   const handleHeightStartChange = (event) => {

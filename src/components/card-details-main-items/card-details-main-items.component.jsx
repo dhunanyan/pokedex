@@ -16,7 +16,6 @@ import { IoIosArrowDown as Arrow } from "react-icons/io";
 
 export const CardDetailsItems = ({ map, objKey, name, message }) => {
   const [showMore, setShowMore] = useState(false);
-  console.log(name);
   return (
     <CardDetailsItemsContainer name={name}>
       <CardDetailsMainSubitle name={name}>{name}</CardDetailsMainSubitle>

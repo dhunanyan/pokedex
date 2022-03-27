@@ -46,11 +46,6 @@ const Cards = ({ nameField, typeField, weightField, heightField }) => {
       )
     );
   }, [dispatch, fetchingOffset]);
-  console.log(
-    window.innerHeight,
-    document.documentElement.scrollTop,
-    document.scrollingElement.scrollHeight
-  );
 
   window.onscroll = () => {
     if (
