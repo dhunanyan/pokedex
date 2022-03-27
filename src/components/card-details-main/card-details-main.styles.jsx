@@ -43,13 +43,13 @@ export const CardDetailsStatsContainer = styled.div`
   margin: 20px 15px;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #d8d8c5;
-  box-shadow: 0px 0px 20px rgba(122, 122, 122, 0.8);
+  background-color: #fafae7;
+  box-shadow: 0px 0px 40px rgba(122, 122, 122, 0.8);
 `;
 
 export const CardDetailsMainTitle = styled.h1`
   font-size: 20px;
-  color: #fafae7;
+  color: rgba(248, 248, 248, 0.7);
   font-weight: 700;
   width: calc(100% - 30px);
   padding: 20px 15px;

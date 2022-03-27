@@ -48,7 +48,7 @@ const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
           </CardDetailsStatsContainer>
           <CardDetailsStatsContainer>
             <CardDetailsMainTitle>
-              AFFECTING MOVES - DECREASE
+              AFFECTING MOVES - INCREASE
             </CardDetailsMainTitle>
             {statsDetails.map((statDetails, index) => (
               <CardDetailsStats
@@ -69,7 +69,7 @@ const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
           </CardDetailsStatsContainer>
           <CardDetailsStatsContainer>
             <CardDetailsMainTitle>
-              AFFECTING NATURES - INCREASE
+              AFFECTING NATURES - DECREASE
             </CardDetailsMainTitle>
             {statsDetails.map((statDetails, index) => (
               <CardDetailsStats

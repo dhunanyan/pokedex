@@ -54,7 +54,7 @@ export const CardDetailsExp = styled.p`
   top: -50px;
   left: 0px;
   background-color: #7ee081;
-  color: #fafae7;
+  color: rgba(248, 248, 248, 0.7);
   padding: 5px;
   font-weight: 500;
 `;
