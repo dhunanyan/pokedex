@@ -41,31 +41,34 @@ export const CardDetailsItem = styled.li`
   font-size: 18px;
   font-weight: 700;
   border-radius: 8px;
-  padding: 8px;
+  padding: 5px;
   margin: 5px;
   color: #fafae7;
-  background-color: rgba(100, 151, 253, 1);
+  color: rgba(100, 151, 253, 1);
+  background-color: rgba(248, 248, 248, 0.7);
 `;
 
 export const CardDetailsNoItem = styled.li`
+  width: 100%;
   font-size: 18px;
   font-weight: 700;
   border-radius: 8px;
   padding: 8px;
   margin: 5px;
-  color: #fafae7;
-  background-color: #a7171a;
+  background-color: rgba(248, 248, 248, 0.6);
+  color: #a7171a;
 `;
 
 export const CardDetailsMainSubitle = styled.h2`
   font-size: 24px;
-  color: #fafae7;
+  color: rgba(248, 248, 248, 0.6);
   font-weight: 700;
   width: calc(100% - 16px);
   padding: 8px;
   margin: 0 0 8px 0;
   background-color: ${({ name }) =>
     name === "All moves" ? "lightcoral" : "#4267b2"};
+  text-transform: uppercase;
 `;
 
 export const CardDetailsMainSubSubtitle = styled.h3`
@@ -73,7 +76,7 @@ export const CardDetailsMainSubSubtitle = styled.h3`
   top: 4px;
   right: 4px;
   font-size: 20px;
-  color: #fafae7;
+  color: rgba(248, 248, 248, 0.7);
   font-weight: 700;
   padding: 6px;
   background-color: #7ee081;

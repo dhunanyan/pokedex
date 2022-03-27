@@ -92,8 +92,8 @@ export const CardImg = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 300px;
   transform: scale(0.7);
   transition: all 200ms ease-out;
 `;

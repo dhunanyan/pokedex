@@ -44,7 +44,7 @@ export const CardDetailsStatsContainer = styled.div`
   border-radius: 20px;
   overflow: hidden;
   background-color: #d8d8c5;
-  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.8);
+  box-shadow: 0px 0px 20px rgba(122, 122, 122, 0.8);
 `;
 
 export const CardDetailsMainTitle = styled.h1`
@@ -53,9 +53,9 @@ export const CardDetailsMainTitle = styled.h1`
   font-weight: 700;
   width: calc(100% - 30px);
   padding: 20px 15px;
-  background-color: lightcoral;
+  background-color: #303030;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.4);
+  box-shadow: 6px 6px 10px rgba(122, 122, 122, 0.4);
 `;
