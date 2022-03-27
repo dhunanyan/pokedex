@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import { useSelector } from "react-redux";
 
-import { BeatLoader } from "react-spinners";
-
 import {
   CardContainer,
   CardContent,
@@ -11,10 +9,9 @@ import {
   CardDetailsText,
   CardId,
   CardImg,
+  CardImgContainer,
   CardItem,
   CardList,
-  CardLoading,
-  CardLoadingContainer,
   CardTitle,
   CardWrapper,
 } from "./card.styles";
@@ -26,16 +23,15 @@ import { CSSTransition } from "react-transition-group";
 import "./card.animations.scss";
 import { selectIsCardsFetching } from "../../redux/cards/cards.selectors";
 
-const Card = ({ pokemon }) => {
+const Card = ({ pokemon, index }) => {
   const { id, name, sprites, types, height, weight } = pokemon;
   const imageUrl = sprites.other["official-artwork"].front_default;
   const [showDetails, setShowDetails] = useState(false);
-  const [imageLoading, setImageLoading] = useState(true);
 
-  const isCardFetching = useSelector(selectIsCardsFetching);
+  const getRandNum = (max) => Math.floor(Math.random() * max) + 1;
 
   return (
-    <CardWrapper>
+    <CardWrapper className={`pokemon__${(id % 8) + 1} pokemon-grid__${id % 4}`}>
       <CSSTransition
         in={showDetails}
         timeout={250}
@@ -53,32 +49,32 @@ const Card = ({ pokemon }) => {
         />
       </CSSTransition>
 
-      {isCardFetching ? (
-        <BeatLoader color={"#4267b2"} loading={isCardFetching} size={15} />
-      ) : (
-        <CardContainer>
-          <CardId>#{id}</CardId>
+      <CardContainer>
+        <CardId>#{id}</CardId>
+        <CardImgContainer>
           <CardImg imageUrl={imageUrl} />
-          <CardContent>
-            <CardTitle>{name[0].toUpperCase() + name.substring(1)}</CardTitle>
-            <CardList listTitle="Biometrics">
-              <CardItem>Weight: {weight}</CardItem>
-              <CardItem>Height: {height}</CardItem>
-            </CardList>
-            <CardList listTitle="Abilities">
-              {types.map((currentType, index) => (
-                <CardItem key={index}>
-                  {currentType.type.name[0].toUpperCase() + name.substring(1)}
-                </CardItem>
-              ))}
-            </CardList>
-            <CardDetailsButton onClick={() => setShowDetails(true)}>
-              <Expand />
-              <CardDetailsText>More details</CardDetailsText>
-            </CardDetailsButton>
-          </CardContent>
-        </CardContainer>
-      )}
+        </CardImgContainer>
+
+        <CardContent>
+          <CardTitle>{name[0].toUpperCase() + name.substring(1)}</CardTitle>
+          <CardList width={"30px"} listTitle="Bio">
+            <CardItem>Weight: {weight}</CardItem>
+            <CardItem>Height: {height}</CardItem>
+          </CardList>
+          <CardList width={"30px"} listTitle="Types">
+            {types.map((currentType, index) => (
+              <CardItem key={index}>
+                {currentType.type.name[0].toUpperCase() +
+                  currentType.type.name.substring(1)}
+              </CardItem>
+            ))}
+          </CardList>
+          <CardDetailsButton onClick={() => setShowDetails(true)}>
+            <Expand />
+            <CardDetailsText>More details</CardDetailsText>
+          </CardDetailsButton>
+        </CardContent>
+      </CardContainer>
     </CardWrapper>
   );
 };

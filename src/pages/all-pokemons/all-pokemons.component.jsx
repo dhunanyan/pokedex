@@ -21,13 +21,6 @@ const AllPokemons = () => {
     end: Number.MAX_SAFE_INTEGER,
   });
 
-  const dispatch = useDispatch();
-  const pokemons = useSelector(selectCardsForPreview);
-
-  useEffect(() => {
-    dispatch(fetchCardsStart());
-  }, [dispatch]);
-
   const handleNameChange = (event) => {
     setNameField(event.target.value);
   };
@@ -64,12 +57,10 @@ const AllPokemons = () => {
         handleHeightEndChange={handleHeightEndChange}
       />
       <Cards
-        pokemons={pokemons}
         nameField={nameField}
         typeField={typeField}
         weightField={weightField}
         heightField={heightField}
-        loadMore={() => dispatch(fetchCardsStart())}
       />
     </AllPokemonsContainer>
   );

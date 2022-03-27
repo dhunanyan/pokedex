@@ -1,11 +1,11 @@
 import CardsActionTypes from "./cards.types";
+import { addLoadedToState } from "./cards.utils";
 
 const INITIAL_STATE = {
   cards: [],
   stats: [],
   isFetching: false,
   errorMessage: undefined,
-  fetchUrl: "https://pokeapi.co/api/v2/pokemon?limit=20",
 };
 
 const {
@@ -29,8 +29,7 @@ const cardsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isFetching: false,
-        cards: state.cards.concat(action.payload[0]),
-        fetchUrl: action.payload[1],
+        cards: addLoadedToState(state.cards, action.payload),
       };
     case FETCH_STATS_SUCCESS:
       return {

@@ -2,21 +2,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStatsStart } from "../../redux/cards/cards.actions";
 import { selectStatsForPreview } from "../../redux/cards/cards.selectors";
+import CardDetailsSide from "../card-details-side/card-details-side.component";
 import {
   CardDetailsContainer,
   CardDetailsMainContent,
   CardDetailsFixed,
   CardDetailsHeader,
-  CardDetailsImg,
   CardDetailsLayout,
   CardDetailsMain,
-  CardDetailsSide,
   CardDetailsWrapper,
-  CardDetailsSideContent,
-  CardStats,
-  CardStat,
-  CardStatTitle,
-  CardStatDescr,
 } from "./card-details.styles";
 
 const CardDetails = ({
@@ -29,7 +23,7 @@ const CardDetails = ({
   onClick,
   appearDetails,
 }) => {
-  const { moves, sprites, stats } = pokemon;
+  const { moves, sprites, stats, abilities } = pokemon;
 
   const dispatch = useDispatch();
   const statsDetails = useSelector(selectStatsForPreview);
@@ -45,27 +39,20 @@ const CardDetails = ({
       <CardDetailsWrapper>
         <CardDetailsLayout onClick={onClick} />
         <CardDetailsContainer>
-          <CardDetailsSide>
-            <CardDetailsImg imageUrl={imageUrl} />
-            <CardDetailsSideContent>
-              <CardStats>
-                {stats.map((currentStat, index) => (
-                  <CardStat key={index} perc={currentStat.base_stat}>
-                    <CardStatTitle>
-                      {(
-                        currentStat.stat.name[0].toUpperCase() +
-                        currentStat.stat.name.substring(1)
-                      ).replace(/-/g, " ")}
-                    </CardStatTitle>
-                    <CardStatDescr>{currentStat.base_stat}</CardStatDescr>
-                  </CardStat>
-                ))}
-              </CardStats>
-            </CardDetailsSideContent>
-          </CardDetailsSide>
+          <CardDetailsSide
+            onClick={onClick}
+            imageUrl={imageUrl}
+            stats={stats}
+            types={types}
+            weight={weight}
+            height={height}
+            abilities={abilities}
+          />
 
           <CardDetailsMain>
-            <CardDetailsHeader>LOL</CardDetailsHeader>
+            <CardDetailsHeader>
+              {name[0].toUpperCase() + name.substring(1)}
+            </CardDetailsHeader>
             <CardDetailsMainContent>LOL</CardDetailsMainContent>
           </CardDetailsMain>
         </CardDetailsContainer>

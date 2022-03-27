@@ -5,7 +5,7 @@ export const SearchHeaderFixed = styled.div`
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   position: fixed;
-  z-index: 90000000122;
+  z-index: 9000122;
 `;
 
 export const SearchHeaderWrapper = styled.div`
@@ -44,7 +44,7 @@ export const SearchHeaderAdvancedButtonContainer = styled.div`
   position: absolute;
   bottom: -40px;
   right: -70px;
-  z-index: 90000000000000;
+  z-index: 9000;
 `;
 
 export const SearchHeaderAdvancedButton = styled.button`
@@ -85,7 +85,7 @@ export const SearchHeaderAdvancedButton = styled.button`
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      transform: translate(0, 38px);
+      transform: translate(55px, 38px);
     }
   }
 
@@ -114,7 +114,7 @@ export const SearchHeaderAdvancedButtonText = styled.p`
 
 export const SearchHeaderAdvancedIconContainer = styled.div`
   svg {
-    transition: all 250ms ease-out;
+    transition: all 150ms ease-out;
     transform: ${({ showAdvancedSearch }) =>
       showAdvancedSearch ? "rotate(180deg)" : "rotate(0)"};
   }

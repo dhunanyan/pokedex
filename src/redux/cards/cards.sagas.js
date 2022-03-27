@@ -30,9 +30,8 @@ export function* fetchStatsAsync() {
   }
 }
 
-export function* fetchCardsAsync() {
+export function* fetchCardsAsync({ payload: fetchUrl }) {
   try {
-    const fetchUrl = yield select(selectors.selectFetchUrl);
     const pokemonsRes = yield call(fetch, fetchUrl);
     const pokemonsData = yield call([pokemonsRes, "json"]);
 
@@ -46,9 +45,9 @@ export function* fetchCardsAsync() {
       pokemonUrls.map((pokemonUrl) => call([pokemonUrl, "json"]))
     );
 
-    const loadMore = pokemonsData.next;
+    // const loadMore = pokemonsData.next;
 
-    yield put(fetchCardsSuccess([cardsMap, loadMore]));
+    yield put(fetchCardsSuccess(cardsMap));
   } catch (error) {
     yield put(fetchCardsFailure(error));
   }
