@@ -28,10 +28,13 @@ const Card = ({ pokemon, index }) => {
   const imageUrl = sprites.other["official-artwork"].front_default;
   const [showDetails, setShowDetails] = useState(false);
 
-  const getRandNum = (max) => Math.floor(Math.random() * max) + 1;
+  const minimizeName = (name) =>
+    name.length > 13 ? name.slice(0, 16) + "..." : name;
 
   return (
-    <CardWrapper className={`pokemon__${(id % 8) + 1} pokemon-grid__${id % 4}`}>
+    <CardWrapper
+      className={`pokemon__${(index % 8) + 1} pokemon-grid__${(index % 4) + 1}`}
+    >
       <CSSTransition
         in={showDetails}
         timeout={250}
@@ -56,7 +59,11 @@ const Card = ({ pokemon, index }) => {
         </CardImgContainer>
 
         <CardContent>
-          <CardTitle>{name[0].toUpperCase() + name.substring(1)}</CardTitle>
+          <CardTitle>
+            {minimizeName(
+              name[0].toUpperCase() + name.substring(1).replace(/-/g, " ")
+            )}
+          </CardTitle>
           <CardList width={"30px"} listTitle="Bio">
             <CardItem>Weight: {weight}</CardItem>
             <CardItem>Height: {height}</CardItem>

@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const CardWrapper = styled.div`
   height: 300px;
-  width: 100%;
+  width: calc(25% - 20px);
+  margin: 10px;
   border-radius: 20px;
   flex-grow: 100;
   overflow: hidden;
@@ -16,7 +17,7 @@ export const CardWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  &.pokemon-grid__1 {
+  /* &.pokemon-grid__1 {
     grid-column: 1/2;
   }
   &.pokemon-grid__2 {
@@ -27,7 +28,7 @@ export const CardWrapper = styled.div`
   }
   &.pokemon-grid__4 {
     grid-column: 4/5;
-  }
+  } */
 `;
 
 export const CardContainer = styled.div`

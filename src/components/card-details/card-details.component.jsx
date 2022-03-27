@@ -2,14 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStatsStart } from "../../redux/cards/cards.actions";
 import { selectStatsForPreview } from "../../redux/cards/cards.selectors";
+import CardDetailsMain from "../card-details-main/card-details-main.component";
 import CardDetailsSide from "../card-details-side/card-details-side.component";
 import {
   CardDetailsContainer,
-  CardDetailsMainContent,
   CardDetailsFixed,
-  CardDetailsHeader,
   CardDetailsLayout,
-  CardDetailsMain,
   CardDetailsWrapper,
 } from "./card-details.styles";
 
@@ -23,38 +21,43 @@ const CardDetails = ({
   onClick,
   appearDetails,
 }) => {
-  const { moves, sprites, stats, abilities } = pokemon;
+  const { moves, sprites, stats, abilities, held_items, base_experience } =
+    pokemon;
 
   const dispatch = useDispatch();
   const statsDetails = useSelector(selectStatsForPreview);
 
   useEffect(() => {
     dispatch(fetchStatsStart());
+    document.body.style.overflow = "hidden";
   }, [dispatch]);
 
-  console.log(stats);
+  console.log(statsDetails);
 
   return (
     <CardDetailsFixed>
       <CardDetailsWrapper>
-        <CardDetailsLayout onClick={onClick} />
+        <CardDetailsLayout
+          onClick={() => {
+            onClick();
+            document.body.style.overflow = "auto";
+          }}
+        />
         <CardDetailsContainer>
           <CardDetailsSide
-            onClick={onClick}
+            onClick={() => {
+              onClick();
+              document.body.style.overflow = "auto";
+            }}
             imageUrl={imageUrl}
             stats={stats}
             types={types}
             weight={weight}
             height={height}
             abilities={abilities}
+            base_experience={base_experience}
           />
-
-          <CardDetailsMain>
-            <CardDetailsHeader>
-              {name[0].toUpperCase() + name.substring(1)}
-            </CardDetailsHeader>
-            <CardDetailsMainContent>LOL</CardDetailsMainContent>
-          </CardDetailsMain>
+          <CardDetailsMain held_items={held_items} moves={moves} name={name} />
         </CardDetailsContainer>
       </CardDetailsWrapper>
     </CardDetailsFixed>

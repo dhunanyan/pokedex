@@ -43,30 +43,3 @@ export const CardDetailsContainer = styled.div`
   border-radius: 20px;
   overflow: hidden;
 `;
-
-export const CardDetailsMain = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 400px;
-  width: 100%;
-`;
-
-export const CardDetailsHeader = styled.div`
-  width: 100%;
-  height: 70px;
-  background-color: #4267b2;
-  font-size: 48px;
-  padding: 0 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
-  color: rgba(248, 248, 248, 0.6);
-`;
-
-export const CardDetailsMainContent = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: #fafae7;
-`;

@@ -26,9 +26,13 @@ export const CardsWrapper = styled.div`
 `;
 
 export const CardsContainer = styled(TransitionGroup)`
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  grid-gap: 20px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 100%;
   transition: all 250ms ease-out;
@@ -112,7 +116,7 @@ export const CardsEmptyMessage = styled.p`
 `;
 
 export const CardsLoading = styled.div`
-  margin: 25px auto;
+  margin: 25px auto 320px auto;
   display: flex;
   justify-content: center;
   align-items: center;

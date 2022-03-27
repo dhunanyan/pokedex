@@ -97,17 +97,13 @@ const Cards = ({ nameField, typeField, weightField, heightField }) => {
                 {filteredPokemons.map((pokemon, index) => (
                   <CSSTransition
                     in={pokemonsChange}
+                    appear={fetchingOffset === 20 ? true : false}
                     timeout={250}
                     classNames="pokemons"
                     unmountOnExit
                     key={pokemon.id}
                   >
-                    <Card
-                      pokemon={pokemon}
-                      pokemonId={pokemon.id}
-                      key={pokemon.id}
-                      index={index}
-                    />
+                    <Card pokemon={pokemon} key={pokemon.id} index={index} />
                   </CSSTransition>
                 ))}
               </CardsContainer>
