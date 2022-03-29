@@ -94,9 +94,10 @@ export const CardsEmptyMessage = styled.p`
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: calc(100% - 100px);
   color: #525252;
   margin: 120px auto;
-  padding: 20px;
+  padding: 100px 50px;
   border-radius: 20px;
   background: linear-gradient(
     to left top,

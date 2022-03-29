@@ -43,9 +43,16 @@ export const SignInButtons = styled.div`
 export const SignInButton = styled.button`
   padding: 8px 12px;
   width: max-content;
-  background-color: ${({ appColor }) => appColor.basic};
+  background-color: ${({ appColor }) => appColor.secondary};
   border-radius: 20px;
   font-size: 20px;
   font-weight: 500;
   color: #f1f1f1;
+  transition: all 150ms ease-out;
+
+  &:hover {
+    background-color: ${({ appColor }) => appColor.basic};
+    color: #fff;
+    transform: translate(10px, 0);
+  }
 `;

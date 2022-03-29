@@ -102,6 +102,7 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: flex-start;
   background-color: rgba(224, 224, 224, 0.85);
   transform: translate(0, 230px);
   height: 270px;
@@ -176,8 +177,37 @@ export const CardItem = styled.li`
   }
 `;
 
+export const CardButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-start;
+  justify-self: flex-start;
+  position: relative;
+  top: -40px;
+  height: 45px;
+`;
+
+export const CardButtonFav = styled.button`
+  font-size: 35px;
+  padding: 5px;
+  border-radius: 20px;
+  color: ${({ appColor }) => appColor.basic};
+  width: 45px;
+  height: 45px;
+  position: relative;
+
+  svg {
+  }
+`;
+
+export const CardButtonFavHeart = styled.div`
+  position: absolute;
+  top: 4.5px;
+  left: 4.5px;
+`;
+
 export const CardDetailsButton = styled.button`
-  margin: 10px 0 0 auto;
   padding: 5px;
   border-radius: 50%;
   width: 45px;

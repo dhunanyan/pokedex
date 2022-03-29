@@ -6,3 +6,7 @@ export const selectFavsItems = createSelector(
   [selectFavs],
   (favs) => favs.favsItems
 );
+
+export const selectFavsItemsForPreview = createSelector([selectFavs], (favs) =>
+  Object.values(favs.favsItems).length ? Object.values(favs.favsItems) : []
+);

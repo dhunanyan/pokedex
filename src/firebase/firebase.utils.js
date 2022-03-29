@@ -23,14 +23,13 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;
     let createdAt = new Date();
-    const stars = {};
+    const favs = {};
 
     try {
       await userRef.set({
         displayName,
         email,
         createdAt,
-        stars,
         ...additionalData,
       });
     } catch (error) {
@@ -48,6 +47,41 @@ export const getCurrentUser = () => {
       resolve(userAuth);
     }, reject);
   });
+};
+
+export const convertCardsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const {
+      abilities,
+      height,
+      id,
+      held_items,
+      moves,
+      sprites,
+      stats,
+      types,
+      weight,
+      name,
+    } = doc.data();
+
+    return {
+      abilities,
+      height,
+      id,
+      held_items,
+      moves,
+      sprites,
+      stats,
+      types,
+      weight,
+      name,
+    };
+  });
+
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.id] = collection;
+    return accumulator;
+  }, {});
 };
 
 export const auth = firebase.auth();

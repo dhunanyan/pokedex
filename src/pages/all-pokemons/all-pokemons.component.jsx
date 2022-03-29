@@ -8,7 +8,7 @@ import Hero from "../../components/hero/hero.component";
 
 import signInHero from "../../assets/hero.jpg";
 
-const AllPokemons = ({ appColor }) => {
+const AllPokemons = ({ appColor, curerntUser }) => {
   const [nameField, setNameField] = useState("");
   const [typeField, setTypeField] = useState("");
   const [weightField, setWeightField] = useState({
@@ -62,6 +62,7 @@ const AllPokemons = ({ appColor }) => {
         appColor={appColor}
       />
       <Cards
+        curerntUser={curerntUser}
         appColor={appColor}
         nameField={nameField}
         typeField={typeField}

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FavouritesCard from "../../components/favourites-card/favourites-card.component";
-import { selectFavsItems } from "../../redux/favs/favs.selectors";
+import { fetchFavsItemsStart } from "../../redux/favs/favs.actions";
+import {
+  selectFavsItems,
+  selectFavsItemsForPreview,
+} from "../../redux/favs/favs.selectors";
 import {
   FavouritesCards,
   FavouritesContainer,
@@ -9,18 +13,22 @@ import {
   FavouritesWrapper,
 } from "./favourites.styles";
 
-const Favourites = ({ appColor }) => {
-  const favsItems = useSelector(selectFavsItems);
+const Favourites = ({ appColor, curerntUser }) => {
+  const dispatch = useDispatch();
+  const favsItemsMap = useSelector(selectFavsItemsForPreview);
 
-  console.log(favsItems);
+  useEffect(() => {
+    dispatch(fetchFavsItemsStart(curerntUser));
+  }, [dispatch, curerntUser]);
 
   return (
     <FavouritesWrapper appColor={appColor}>
       <FavouritesContainer>
-        {favsItems.length ? (
+        {favsItemsMap.length ? (
           <FavouritesCards>
-            {favsItems.map((favsItem, index) => (
+            {favsItemsMap.map((favsItem, index) => (
               <FavouritesCard
+                curerntUser={curerntUser}
                 key={index}
                 favsItem={favsItem}
                 appColor={appColor}

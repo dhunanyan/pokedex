@@ -18,7 +18,6 @@ import {
   LoadButtonContainer,
   LoadButtonText,
 } from "./cards.styles";
-import { Wrapper } from "../../global.styles";
 
 import { HiArrowSmDown as Arrow } from "react-icons/hi";
 import { CSSTransition } from "react-transition-group";
@@ -27,6 +26,8 @@ import "./cards.animations.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCardsStart } from "../../redux/cards/cards.actions";
 import { Spinner } from "../with-spinner/with-spinner.component";
+import { fetchFavsItemsStart } from "../../redux/favs/favs.actions";
+import { selectFavsItemsForPreview } from "../../redux/favs/favs.selectors";
 // import Loading from "../loading/loading.component";
 
 const Cards = ({
@@ -35,10 +36,13 @@ const Cards = ({
   weightField,
   heightField,
   appColor,
+  curerntUser,
 }) => {
   const [pokemonsChange, setPokemonsChange] = useState(false);
   const [fetchingOffset, setFetchingOffset] = useState(0);
   const [activeInfiniteScroll, setActiveInfiniteScroll] = useState(false);
+  const favsItemsMap = useSelector(selectFavsItemsForPreview);
+  const favsItemsKeys = Object.keys(favsItemsMap);
 
   const dispatch = useDispatch();
   const pokemons = useSelector(selectCardsForPreview);
@@ -50,7 +54,8 @@ const Cards = ({
         `https://pokeapi.co/api/v2/pokemon?offset=${fetchingOffset}&limit=20`
       )
     );
-  }, [dispatch, fetchingOffset]);
+    dispatch(fetchFavsItemsStart(curerntUser));
+  }, [dispatch, fetchingOffset, curerntUser]);
 
   window.onscroll = () => {
     if (
@@ -104,6 +109,8 @@ const Cards = ({
                     key={pokemon.id}
                   >
                     <Card
+                      favsItemsKeys={favsItemsKeys}
+                      curerntUser={curerntUser}
                       pokemon={pokemon}
                       key={pokemon.id}
                       index={index}

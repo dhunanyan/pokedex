@@ -92,6 +92,8 @@ const App = () => {
     dispatch(checkUserSession());
   }, [dispatch]);
 
+  const curerntUser = useSelector(selectCurrentUser);
+
   return (
     <AppContainer>
       <Header
@@ -120,6 +122,7 @@ const App = () => {
             path="/pokedex"
             element={
               <AllPokemons
+                curerntUser={curerntUser}
                 appColor={getAppColor(
                   checkedPink,
                   checkedGreen,
@@ -133,6 +136,7 @@ const App = () => {
             path="/pokedex/favourites"
             element={
               <Favourites
+                curerntUser={curerntUser}
                 appColor={getAppColor(
                   checkedPink,
                   checkedGreen,
