@@ -16,7 +16,7 @@ export const HeroContainer = styled(Wrapper)`
 `;
 
 export const HeroContentContainer = styled.div`
-  background-color: rgba(48, 48, 48, 0.9);
+  background-color: ${({ appColor }) => appColor.other};
   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
   padding: 18px 60px 18px 18px;
   border-radius: 40px;

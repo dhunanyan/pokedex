@@ -7,6 +7,7 @@ import Header from "./components/header/haeder.component";
 
 import { AppContainer, Main } from "./global.styles";
 import AllPokemons from "./pages/all-pokemons/all-pokemons.component";
+import Favourites from "./pages/favourites/favourites.component";
 import SigninAndSignupPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import { checkUserSession } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selector";
@@ -104,6 +105,12 @@ const App = () => {
         checkedBlack={checkedBlack}
         headerColors={colors}
         currentUser={currentUser}
+        appColor={getAppColor(
+          checkedPink,
+          checkedGreen,
+          checkedRed,
+          checkedBlack
+        )}
       />
 
       <Main>
@@ -113,6 +120,19 @@ const App = () => {
             path="/pokedex"
             element={
               <AllPokemons
+                appColor={getAppColor(
+                  checkedPink,
+                  checkedGreen,
+                  checkedRed,
+                  checkedBlack
+                )}
+              />
+            }
+          />
+          <Route
+            path="/pokedex/favourites"
+            element={
+              <Favourites
                 appColor={getAppColor(
                   checkedPink,
                   checkedGreen,
@@ -141,7 +161,14 @@ const App = () => {
           />
         </Routes>
       </Main>
-      <Footer />
+      <Footer
+        appColor={getAppColor(
+          checkedPink,
+          checkedGreen,
+          checkedRed,
+          checkedBlack
+        )}
+      />
     </AppContainer>
   );
 };

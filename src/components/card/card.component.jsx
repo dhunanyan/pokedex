@@ -19,11 +19,14 @@ import CardDetails from "../card-details/card-details.component";
 import { CSSTransition } from "react-transition-group";
 
 import "./card.animations.scss";
+import { useDispatch } from "react-redux";
+import { addFav } from "../../redux/favs/favs.actions";
 
 const Card = ({ pokemon, index, appColor }) => {
+  const [showDetails, setShowDetails] = useState(false);
+  const dispatch = useDispatch();
   const { id, name, sprites, types, height, weight } = pokemon;
   const imageUrl = sprites.other["official-artwork"].front_default;
-  const [showDetails, setShowDetails] = useState(false);
 
   const minimizeName = (name) =>
     name.length > 13 ? name.slice(0, 16) + "..." : name;
@@ -74,6 +77,10 @@ const Card = ({ pokemon, index, appColor }) => {
               </CardItem>
             ))}
           </CardList>
+          <CardDetailsButton
+            appColor={appColor}
+            onClick={() => dispatch(addFav(pokemon))}
+          ></CardDetailsButton>
           <CardDetailsButton
             appColor={appColor}
             onClick={() => setShowDetails(true)}

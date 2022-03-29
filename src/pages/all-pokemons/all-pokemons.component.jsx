@@ -59,6 +59,7 @@ const AllPokemons = ({ appColor }) => {
         heroImageUrl={signInHero}
         heroTitle={"Welcome to Pokédex"}
         heroDescr={"Sign in to add pokemons to collection"}
+        appColor={appColor}
       />
       <Cards
         appColor={appColor}

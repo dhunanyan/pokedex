@@ -10,13 +10,13 @@ import {
   HeroContentContainer,
 } from "./hero.styles";
 
-const Hero = ({ heroTitle, heroDescr, heroImageUrl }) => {
+const Hero = ({ heroTitle, heroDescr, heroImageUrl, appColor }) => {
   console.log(heroImageUrl);
   return (
     <HeroWrapper imageUrl={heroImageUrl}>
       <HeroContainer>
         <HeroContent>
-          <HeroContentContainer>
+          <HeroContentContainer appColor={appColor}>
             <HeroSubtitle>
               {heroDescr}
               <HeroLine></HeroLine>

@@ -1,5 +1,10 @@
 import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
+import { Wrapper } from "../../global.styles";
+
+export const CardsWrapperLoading = styled(Wrapper)`
+  position: relative;
+`;
 
 export const CardsWrapper = styled.ul`
   display: flex;

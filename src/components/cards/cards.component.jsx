@@ -13,6 +13,7 @@ import {
   CardsEmptyMessage,
   CardsLoading,
   CardsWrapper,
+  CardsWrapperLoading,
   LoadButton,
   LoadButtonContainer,
   LoadButtonText,
@@ -79,7 +80,7 @@ const Cards = ({
   );
 
   return (
-    <Wrapper>
+    <CardsWrapperLoading>
       {/* custom loading animation (big)*/}
       {/* <CardsPageLoading>
         <Loading />
@@ -144,7 +145,7 @@ const Cards = ({
           )}
         </>
       )}
-    </Wrapper>
+    </CardsWrapperLoading>
   );
 };
 

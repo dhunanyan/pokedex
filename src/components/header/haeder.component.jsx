@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { MdCatchingPokemon as LogoIcon } from "react-icons/md";
-import { AiFillStar as Star } from "react-icons/ai";
+import { AiFillHeart as Heart } from "react-icons/ai";
 
 import colorPicker from "../../assets/color-picker.png";
 
@@ -12,6 +12,7 @@ import {
   HeaderColorsList,
   HeaderContainer,
   HeaderItem,
+  HeaderItemColor,
   HeaderItemIcon,
   HeaderLink,
   HeaderList,
@@ -34,6 +35,7 @@ const Header = ({
   checkedBlack,
   headerColors,
   currentUser,
+  appColor,
 }) => {
   const [showColors, setShowColors] = useState(false);
   const dispatch = useDispatch();
@@ -42,12 +44,14 @@ const Header = ({
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <HeaderLogo to="/pokedex">
-          <HeaderLogoIcon>
-            <LogoIcon />
-          </HeaderLogoIcon>
-          <HeaderLogoText>Pokédex</HeaderLogoText>
-        </HeaderLogo>
+        <HeaderItemColor appColor={appColor}>
+          <HeaderLogo to="/pokedex">
+            <HeaderLogoIcon>
+              <LogoIcon />
+            </HeaderLogoIcon>
+            <HeaderLogoText>Pokédex</HeaderLogoText>
+          </HeaderLogo>
+        </HeaderItemColor>
 
         <HeaderList>
           <HeaderColorsList showColors={showColors} currentUser={currentUser}>
@@ -105,23 +109,27 @@ const Header = ({
           </HeaderColorPicker>
           {currentUser ? (
             <HeaderItem isCheckbox={false}>
-              <HeaderLink to={"#"}>
-                Stars
-                <HeaderItemIcon>
-                  <Star />
-                </HeaderItemIcon>
-              </HeaderLink>
+              <HeaderItemColor appColor={appColor}>
+                <HeaderLink to={"/pokedex/favourites"}>
+                  Favourites
+                  <HeaderItemIcon>
+                    <Heart />
+                  </HeaderItemIcon>
+                </HeaderLink>
+              </HeaderItemColor>
             </HeaderItem>
           ) : null}
           {currentUser ? (
             <HeaderItem isCheckbox={false}>
-              <HeaderButton onClick={signOutStartDispatch}>
+              <HeaderButton onClick={signOutStartDispatch} appColor={appColor}>
                 Sign out
               </HeaderButton>
             </HeaderItem>
           ) : (
             <HeaderItem isCheckbox={false}>
-              <HeaderLink to="/pokedex/signin">Sign in</HeaderLink>
+              <HeaderItemColor appColor={appColor}>
+                <HeaderLink to="/pokedex/signin">Sign in</HeaderLink>
+              </HeaderItemColor>
             </HeaderItem>
           )}
         </HeaderList>

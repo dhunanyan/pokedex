@@ -16,6 +16,7 @@ const SigninAndSignupPage = ({ appColor }) => (
       heroImageUrl={signInHero}
       heroTitle={"Join us to have fun!"}
       heroDescr={"Sign up or use your account to sign in"}
+      appColor={appColor}
     />
     <SignInAndSignUpWrapper appColor={appColor}>
       <SignInSignAndUpContainer>

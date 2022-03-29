@@ -1,14 +1,18 @@
 import styled from "styled-components";
 import { Wrapper } from "../../global.styles";
 import {
+  HeaderItemColor,
   HeaderLogo,
   HeaderLogoIcon,
   HeaderLogoText,
   HeaderWrapper,
 } from "../header/header.styles";
 
-export const FooterWrapper = styled(HeaderWrapper)`
-  position: static;
+export const FooterWrapper = styled.footer`
+  width: 100%;
+  height: 70px;
+  background-color: #303030;
+  color: #f1f1f1;
 `;
 
 export const FooterContainer = styled(Wrapper)`
@@ -20,10 +24,13 @@ export const FooterContainer = styled(Wrapper)`
   height: 100%;
 `;
 
-export const FooterLogo = styled(HeaderLogo)`
-  font-size: 18px;
+export const FooterItemColor = styled(HeaderItemColor)`
   margin: 0 0 10px 0;
   align-self: flex-start;
+`;
+
+export const FooterLogo = styled(HeaderLogo)`
+  font-size: 18px;
 `;
 
 export const FooterLogoIcon = styled(HeaderLogoIcon)`

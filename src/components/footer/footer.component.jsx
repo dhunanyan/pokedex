@@ -6,22 +6,25 @@ import {
   FooterContainer,
   FooterContent,
   FooterDescr,
+  FooterItemColor,
   FooterLogo,
   FooterLogoIcon,
   FooterLogoText,
   FooterWrapper,
 } from "./footer.styles";
 
-const Footer = () => {
+const Footer = ({ appColor }) => {
   return (
     <FooterWrapper>
       <FooterContainer>
-        <FooterLogo to="/pokedex">
-          <FooterLogoIcon>
-            <LogoIcon />
-          </FooterLogoIcon>
-          <FooterLogoText>Pokédex</FooterLogoText>
-        </FooterLogo>
+        <FooterItemColor appColor={appColor}>
+          <FooterLogo to="/pokedex">
+            <FooterLogoIcon>
+              <LogoIcon />
+            </FooterLogoIcon>
+            <FooterLogoText>Pokédex</FooterLogoText>
+          </FooterLogo>
+        </FooterItemColor>
 
         <FooterContent>
           <FooterDescr>All rights reserved &copy;</FooterDescr>

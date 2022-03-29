@@ -69,11 +69,8 @@ export const HeaderLogo = styled(Link)`
   transition: all 150ms ease-out;
 
   &:hover {
-    color: #ffd300;
-
     svg {
       transition: all 150ms ease-out;
-      color: #ffd300;
       animation: shakeColorPicker 300ms both;
     }
   }
@@ -116,7 +113,7 @@ export const HeaderColorsList = styled.ul`
   border-radius: ${({ showColors }) => (showColors ? "20px" : "30px")};
   background-color: #fafae7;
   position: absolute;
-  right: ${({ currentUser }) => (currentUser ? "239.5px" : "120px")};
+  right: ${({ currentUser }) => (currentUser ? "290px" : "120px")};
   top: 50%;
   transform: translate(0, -50%);
   width: ${({ showColors }) => (showColors ? "250px" : "0px")};
@@ -157,6 +154,10 @@ export const HeaderItem = styled.li`
     display: flex;
     align-items: center;
   }
+
+  &:hover {
+  }
+
   button {
     height: 30px;
     display: flex;
@@ -195,6 +196,18 @@ export const HeaderItem = styled.li`
   }
 `;
 
+export const HeaderItemColor = styled.div`
+  &:hover {
+    a {
+      color: ${({ appColor }) => appColor.secondary};
+
+      svg {
+        color: ${({ appColor }) => appColor.secondary};
+      }
+    }
+  }
+`;
+
 export const HeaderColorPicker = styled.button`
   width: 40px;
   cursor: pointer;
@@ -227,12 +240,9 @@ export const HeaderLink = styled(Link)`
   transition: all 150ms ease-out;
 
   &:hover {
-    color: #ffd300;
-
     svg {
       animation: shakeColorPicker 300ms both;
       transition: all 150ms ease-out;
-      color: #ffd300;
     }
   }
 
@@ -265,6 +275,6 @@ export const HeaderButton = styled.button`
   transition: all 150ms ease-out;
 
   &:hover {
-    color: #ffd300;
+    color: ${({ appColor }) => appColor.secondary};
   }
 `;
