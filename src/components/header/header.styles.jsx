@@ -1,7 +1,44 @@
 import { Switch } from "@mui/material";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Wrapper } from "../../global.styles";
+
+const shakeColorPicker = css`
+  @keyframes shakeColorPicker {
+    0% {
+      transform: scale(1) rotate(-0deg);
+      opacity: 0.85;
+    }
+    14.2% {
+      transform: scale(1) rotate(-25deg);
+      opacity: 0.85;
+    }
+    28.4% {
+      transform: scale(1.04) rotate(-12.5deg);
+      opacity: 0.85;
+    }
+    42.6% {
+      transform: scale(1.08) rotate(0deg);
+      opacity: 0.925;
+    }
+    56.8% {
+      transform: scale(1.12) rotate(12.5deg);
+      opacity: 0.925;
+    }
+    71% {
+      transform: scale(1.16) rotate(25deg);
+      opacity: 0.95;
+    }
+    83.2% {
+      transform: scale(1.17) rotate(12.5deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.18) rotate(0deg);
+      opacity: 1;
+    }
+  }
+`;
 
 export const HeaderWrapper = styled.header`
   position: fixed;
@@ -28,6 +65,19 @@ export const HeaderLogo = styled(Link)`
   align-items: center;
   color: #f1f1f1;
   text-decoration: none;
+  transition: all 150ms ease-out;
+
+  &:hover {
+    color: #ffd300;
+
+    svg {
+      transition: all 150ms ease-out;
+      color: #ffd300;
+      animation: shakeColorPicker 300ms both;
+    }
+  }
+
+  ${shakeColorPicker}
 `;
 
 export const HeaderLogoText = styled.p`
@@ -161,40 +211,7 @@ export const HeaderColorPicker = styled.button`
     width: 100%;
   }
 
-  @keyframes shakeColorPicker {
-    0% {
-      transform: scale(1) rotate(-0deg);
-      opacity: 0.85;
-    }
-    14.2% {
-      transform: scale(1) rotate(-25deg);
-      opacity: 0.85;
-    }
-    28.4% {
-      transform: scale(1.04) rotate(-12.5deg);
-      opacity: 0.85;
-    }
-    42.6% {
-      transform: scale(1.08) rotate(0deg);
-      opacity: 0.925;
-    }
-    56.8% {
-      transform: scale(1.12) rotate(12.5deg);
-      opacity: 0.925;
-    }
-    71% {
-      transform: scale(1.16) rotate(25deg);
-      opacity: 0.95;
-    }
-    83.2% {
-      transform: scale(1.17) rotate(12.5deg);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1.18) rotate(0deg);
-      opacity: 1;
-    }
-  }
+  ${shakeColorPicker}
 `;
 
 export const HeaderColor = styled(Switch)``;
@@ -212,11 +229,13 @@ export const HeaderLink = styled(Link)`
     color: #ffd300;
 
     svg {
+      animation: shakeColorPicker 300ms both;
       transition: all 150ms ease-out;
       color: #ffd300;
-      transform: scale(1.25);
     }
   }
+
+  ${shakeColorPicker}
 `;
 
 export const HeaderItemIcon = styled.div`
