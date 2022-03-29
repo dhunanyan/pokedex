@@ -7,7 +7,7 @@ export const FavouritesCardContainer = styled.li`
   padding: 5px;
   background-color: red;
   width: calc(100% - 30px);
-  margin: 0.5px 0;
+  margin: 5px auto;
   background-color: rgba(241, 241, 241, 0.5);
   border-radius: 10px;
   overflow: hidden;
@@ -53,7 +53,7 @@ export const FavouritesCardContent = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 10px;
+  margin: 0 auto;
   padding: 5px;
   border-radius: 10px;
   background-color: rgba(241, 241, 241, 0.5);
@@ -63,12 +63,12 @@ export const FavouritesCardContent = styled.ul`
 
 const typesStyles = css`
   height: 100%;
-  margin: 0 10px;
+  margin: 0 auto;
 `;
 
 const abilitiesStyles = css`
   height: 100%;
-  margin: 1px auto 1px 10px;
+  margin: 0 auto;
 `;
 
 export const FavouritesCardBio = styled.li`
@@ -79,7 +79,6 @@ export const FavouritesCardBio = styled.li`
   background-color: rgba(68, 68, 68, 1);
   color: #f1f1f1;
   padding: 5px;
-  margin: 1px;
   ${({ isTypes }) => (isTypes ? typesStyles : null)}
   ${({ isAbility }) => (isAbility ? abilitiesStyles : null)}
   background-color: ${({ appColor, isTypes, isAbility }) =>

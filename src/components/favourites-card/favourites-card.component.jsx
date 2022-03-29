@@ -45,13 +45,12 @@ const FavouritesCard = ({ favsItem, appColor, curerntUser }) => {
         <FavouritesCardImgContainer appColor={appColor}>
           <FavouritesCardImg imageUrl={imageUrl} />
         </FavouritesCardImgContainer>
-
-        <FavouritesCardContent>
-          <FavouritesCardName>
-            {name[0].toUpperCase() + name.substring(1).replace(/-/g, " ")}
-          </FavouritesCardName>
-        </FavouritesCardContent>
       </FavouritesMainContainer>
+      <FavouritesCardContent>
+        <FavouritesCardName>
+          {name[0].toUpperCase() + name.substring(1).replace(/-/g, " ")}
+        </FavouritesCardName>
+      </FavouritesCardContent>
 
       <FavouritesCardContent>
         <FavouritesCardBio>Weight: {weight}lbs</FavouritesCardBio>
