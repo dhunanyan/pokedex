@@ -8,8 +8,9 @@ export const CardDetailsSideContainer = styled.div`
   min-width: 420px;
   width: 100%;
   order: 2;
-  background-color: #4267b2;
+  background-color: ${({ appColor }) => appColor.basic};
   padding: 60px 15px 15px 15px;
+  transition: all 150ms ease-out;
 `;
 
 export const CardDetailsTimes = styled.button`

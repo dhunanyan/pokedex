@@ -52,8 +52,9 @@ export const CardStatOverflow = styled.div`
     top: 0;
     width: ${({ perc }) => `${parseInt(perc) / 1.8}%`};
     height: 100%;
-    background-color: rgba(66, 103, 178, 0.75);
+    background-color: ${({ appColor }) => appColor.other};
     z-index: 0;
+    transition: background-color 150ms ease-out;
   }
 `;
 

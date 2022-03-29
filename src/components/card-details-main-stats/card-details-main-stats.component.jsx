@@ -11,15 +11,14 @@ import {
 import {
   CardDetailsItemsButton,
   CardDetailsItemsButtonContainer,
-  CardDetailsItemsWrapper,
 } from "./card-details-main-stats.styles";
 
 import { IoIosArrowDown as Arrow } from "react-icons/io";
 
-const mapMoves = (map, objKey1, objKey2, objKey3, objKey4) =>
+const mapMoves = (map, objKey1, objKey2, objKey3, objKey4, appColor) =>
   map[objKey1][objKey2].length ? (
     map[objKey1][objKey2].map((currentItem) => (
-      <CardDetailsItem>
+      <CardDetailsItem appColor={appColor}>
         {currentItem[objKey3][objKey4][0].toUpperCase() +
           currentItem[objKey3][objKey4].substring(1).replace(/-/g, " ")}
       </CardDetailsItem>
@@ -33,10 +32,10 @@ const mapMoves = (map, objKey1, objKey2, objKey3, objKey4) =>
     </CardDetailsNoItem>
   );
 
-const mapNatures = (map, objKey1, objKey2, objKey3) =>
+const mapNatures = (map, objKey1, objKey2, objKey3, appColor) =>
   map[objKey1][objKey2].length ? (
     map[objKey1][objKey2].map((currentItem) => (
-      <CardDetailsItem>
+      <CardDetailsItem appColor={appColor}>
         {currentItem[objKey3][0].toUpperCase() +
           currentItem[objKey3].substring(1).replace(/-/g, " ")}
       </CardDetailsItem>
@@ -59,6 +58,7 @@ export const CardDetailsStats = ({
   movesType,
   affectingKey,
   increaseName,
+  appColor,
 }) => {
   const [showMore, setShowMore] = useState(false);
 
@@ -69,16 +69,28 @@ export const CardDetailsStats = ({
           {map.move_damage_class.name}
         </CardDetailsMainSubSubtitle>
       ) : null}
-      <CardDetailsMainSubitle>{name}</CardDetailsMainSubitle>
+      <CardDetailsMainSubitle appColor={appColor}>
+        {name}
+      </CardDetailsMainSubitle>
 
       <CardDetailsItemsList showMore={showMore}>
         {increaseName
-          ? mapMoves(map, moves, movesType, affectingKey, increaseName)
-          : mapNatures(map, moves, movesType, affectingKey)}
+          ? mapMoves(
+              map,
+              moves,
+              movesType,
+              affectingKey,
+              increaseName,
+              appColor
+            )
+          : mapNatures(map, moves, movesType, affectingKey, appColor)}
       </CardDetailsItemsList>
 
       {map[moves][movesType].length > 5 ? (
-        <CardDetailsItemsButtonContainer onClick={() => setShowMore(!showMore)}>
+        <CardDetailsItemsButtonContainer
+          appColor={appColor}
+          onClick={() => setShowMore(!showMore)}
+        >
           <CardDetailsItemsButton showMore={showMore}>
             <Arrow />
           </CardDetailsItemsButton>

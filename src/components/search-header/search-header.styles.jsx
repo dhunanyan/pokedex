@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import { Wrapper } from "../../global.styles";
 
 export const SearchHeaderFixed = styled.div`
-  width: calc(100% - 90px);
+  width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   position: fixed;
   z-index: 9000122;
+  background-color: ${({ appColor }) => appColor.basic};
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  transition: background-color 150ms ease-out;
 `;
 
 export const SearchHeaderWrapper = styled.div`
@@ -14,18 +18,16 @@ export const SearchHeaderWrapper = styled.div`
   position: relative;
 `;
 
-export const SearchHeaderContainer = styled.div`
-  padding: 20px 45px;
-  background-color: #4267b2;
-  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+export const SearchHeaderContainer = styled(Wrapper)`
   z-index: 100;
   height: ${({ showAdvancedSearch }) =>
-    showAdvancedSearch ? "149px" : "52px"};
+    showAdvancedSearch ? "130px" : "52px"};
   transition: all 150ms ease-out;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  overflow-y: hidden;
+  padding: 15px 30px;
 `;
 
 export const SearchHeaderMain = styled.div`
@@ -43,7 +45,7 @@ export const SearchHeaderAdvancedButtonContainer = styled.div`
   cursor: pointer;
   position: absolute;
   bottom: -40px;
-  right: -70px;
+  right: 30px;
   z-index: 9000;
 `;
 
@@ -73,8 +75,9 @@ export const SearchHeaderAdvancedButton = styled.button`
     width: 160px;
     border-radius: 10px;
     color: #f1f1f1;
-    background-color: #648ad4;
+    background-color: ${({ appColor }) => appColor.other};
     box-shadow: -6px -6px 20px rgba(122, 122, 122, 0.2);
+    transition: background-color 150ms ease-out;
 
     p {
       animation: showLoadButtonText 150ms ease-out 160ms forwards;
@@ -123,7 +126,7 @@ export const SearchHeaderAdvancedIconContainer = styled.div`
 export const SearchHeaderToggle = styled.div`
   display: flex;
   width: 100%;
-  background-color: #4267b2;
+  background-color: ${({ appColor }) => appColor.basic};
   max-height: 100%;
   margin: 25px 0 0 0;
   transition: all 150ms ease-out;

@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const AppContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+`;
+
 export const Main = styled.main`
   width: 100%;
   display: flex;
@@ -44,9 +52,9 @@ export const CardDetailsItem = styled.li`
   border-radius: 8px;
   padding: 5px;
   margin: 5px;
-  color: #fafae7;
-  color: rgba(100, 151, 253, 1);
+  color: ${({ appColor }) => appColor.secondary};
   background-color: rgba(248, 248, 248, 0.7);
+  transition: color 150ms ease-out;
 `;
 
 export const CardDetailsNoItem = styled.li`
@@ -70,9 +78,10 @@ export const CardDetailsMainSubitle = styled.h2`
   padding: ${({ name }) =>
     name === "All moves" || name === "Held Items" ? "20px 15px" : "8px"};
   margin: 0 0 8px 0;
-  background-color: ${({ name }) =>
-    name === "All moves" || name === "Held Items" ? "#303030" : "#4267b2"};
+  background-color: ${({ name, appColor }) =>
+    name === "All moves" || name === "Held Items" ? "#303030" : appColor.basic};
   text-transform: uppercase;
+  transition: background-color 150ms ease-out;
 `;
 
 export const CardDetailsMainSubSubtitle = styled.h3`

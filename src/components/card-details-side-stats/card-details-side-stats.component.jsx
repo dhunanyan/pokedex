@@ -18,7 +18,7 @@ import {
 } from "react-icons/gi";
 import { BsFillShieldFill as Shield } from "react-icons/bs";
 
-const CardStats = ({ stats }) => {
+const CardStats = ({ stats, appColor }) => {
   const iconArr = [
     [<Heart />, "#e7525b"],
     [<HandSword />, "#3a9bdc"],
@@ -33,7 +33,7 @@ const CardStats = ({ stats }) => {
       {stats.map((currentStat, index) => (
         <CardStat key={index} iconColor={iconArr[index][1]}>
           {iconArr[index][0]}
-          <CardStatOverflow perc={currentStat.base_stat}>
+          <CardStatOverflow perc={currentStat.base_stat} appColor={appColor}>
             <CardStatTitle>
               {(
                 currentStat.stat.name[0].toUpperCase() +

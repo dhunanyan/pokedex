@@ -23,9 +23,10 @@ const CardDetailsSide = ({
   height,
   abilities,
   base_experience,
+  appColor,
 }) => {
   return (
-    <CardDetailsSideContainer>
+    <CardDetailsSideContainer appColor={appColor}>
       <CardDetailsTimes onClick={onClick}>
         <Close />
       </CardDetailsTimes>
@@ -35,7 +36,7 @@ const CardDetailsSide = ({
       </CardDetailsImgContainer>
 
       <CardDetailsSideContent>
-        <CardStats stats={stats} objKey="base_stat" />
+        <CardStats stats={stats} objKey="base_stat" appColor={appColor} />
 
         <CardAbilities
           height={height}

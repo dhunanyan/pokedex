@@ -15,7 +15,7 @@ export const CustomInput = styled.input`
   box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
   position: relative;
   z-index: 2;
-  height: 52px;
+  max-height: 52px;
 
   &:first-of-type {
     margin: 0 25px 0 0;

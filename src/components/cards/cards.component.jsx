@@ -30,7 +30,13 @@ import { fetchCardsStart } from "../../redux/cards/cards.actions";
 import { Spinner } from "../with-spinner/with-spinner.component";
 // import Loading from "../loading/loading.component";
 
-const Cards = ({ nameField, typeField, weightField, heightField }) => {
+const Cards = ({
+  nameField,
+  typeField,
+  weightField,
+  heightField,
+  appColor,
+}) => {
   const [pokemonsChange, setPokemonsChange] = useState(false);
   const [fetchingOffset, setFetchingOffset] = useState(0);
   const [activeInfiniteScroll, setActiveInfiniteScroll] = useState(false);
@@ -98,7 +104,12 @@ const Cards = ({ nameField, typeField, weightField, heightField }) => {
                     unmountOnExit
                     key={pokemon.id}
                   >
-                    <Card pokemon={pokemon} key={pokemon.id} index={index} />
+                    <Card
+                      pokemon={pokemon}
+                      key={pokemon.id}
+                      index={index}
+                      appColor={appColor}
+                    />
                   </CSSTransition>
                 ))}
               </CardsContainer>

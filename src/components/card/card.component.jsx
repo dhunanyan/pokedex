@@ -23,7 +23,7 @@ import { CSSTransition } from "react-transition-group";
 import "./card.animations.scss";
 import { selectIsCardsFetching } from "../../redux/cards/cards.selectors";
 
-const Card = ({ pokemon, index }) => {
+const Card = ({ pokemon, index, appColor }) => {
   const { id, name, sprites, types, height, weight } = pokemon;
   const imageUrl = sprites.other["official-artwork"].front_default;
   const [showDetails, setShowDetails] = useState(false);
@@ -48,11 +48,12 @@ const Card = ({ pokemon, index }) => {
           types={types}
           height={height}
           weight={weight}
+          appColor={appColor}
           onClick={() => setShowDetails(false)}
         />
       </CSSTransition>
 
-      <CardContainer>
+      <CardContainer appColor={appColor}>
         <CardId>#{id}</CardId>
         <CardImgContainer>
           <CardImg imageUrl={imageUrl} />
@@ -76,7 +77,10 @@ const Card = ({ pokemon, index }) => {
               </CardItem>
             ))}
           </CardList>
-          <CardDetailsButton onClick={() => setShowDetails(true)}>
+          <CardDetailsButton
+            appColor={appColor}
+            onClick={() => setShowDetails(true)}
+          >
             <Expand />
             <CardDetailsText>More details</CardDetailsText>
           </CardDetailsButton>

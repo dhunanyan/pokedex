@@ -9,7 +9,7 @@ import Cards from "../../components/cards/cards.component";
 
 import { AllPokemonsContainer } from "./all-pokemons.styles";
 
-const AllPokemons = () => {
+const AllPokemons = ({ appColor }) => {
   const [nameField, setNameField] = useState("");
   const [typeField, setTypeField] = useState("");
   const [weightField, setWeightField] = useState({
@@ -46,7 +46,7 @@ const AllPokemons = () => {
   };
 
   return (
-    <AllPokemonsContainer>
+    <AllPokemonsContainer appColor={appColor}>
       <SearchHeader
         handleNameChange={handleNameChange}
         handleTypeChange={handleTypeChange}
@@ -54,8 +54,10 @@ const AllPokemons = () => {
         handleWeightEndChange={handleWeightEndChange}
         handleHeightStartChange={handleHeightStartChange}
         handleHeightEndChange={handleHeightEndChange}
+        appColor={appColor}
       />
       <Cards
+        appColor={appColor}
         nameField={nameField}
         typeField={typeField}
         weightField={weightField}

@@ -14,15 +14,17 @@ import {
 
 import { IoIosArrowDown as Arrow } from "react-icons/io";
 
-export const CardDetailsItems = ({ map, objKey, name, message }) => {
+export const CardDetailsItems = ({ map, objKey, name, message, appColor }) => {
   const [showMore, setShowMore] = useState(false);
   return (
     <CardDetailsItemsContainer name={name}>
-      <CardDetailsMainSubitle name={name}>{name}</CardDetailsMainSubitle>
+      <CardDetailsMainSubitle name={name} appColor={appColor}>
+        {name}
+      </CardDetailsMainSubitle>
       <CardDetailsItemsList showMore={showMore} name={name}>
         {map.length ? (
           map.map((currentItem) => (
-            <CardDetailsItem>
+            <CardDetailsItem appColor={appColor}>
               {currentItem[objKey].name[0].toUpperCase() +
                 currentItem[objKey].name.substring(1).replace(/-/g, " ")}
             </CardDetailsItem>
@@ -32,7 +34,10 @@ export const CardDetailsItems = ({ map, objKey, name, message }) => {
         )}
       </CardDetailsItemsList>
       {map.length > 5 ? (
-        <CardDetailsItemsButtonContainer onClick={() => setShowMore(!showMore)}>
+        <CardDetailsItemsButtonContainer
+          appColor={appColor}
+          onClick={() => setShowMore(!showMore)}
+        >
           <CardDetailsItemsButton showMore={showMore}>
             <Arrow />
           </CardDetailsItemsButton>

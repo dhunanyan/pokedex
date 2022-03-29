@@ -20,6 +20,7 @@ const CardDetails = ({
   pokemon,
   onClick,
   appearDetails,
+  appColor,
 }) => {
   const { moves, sprites, stats, abilities, held_items, base_experience } =
     pokemon;
@@ -43,6 +44,7 @@ const CardDetails = ({
         />
         <CardDetailsContainer>
           <CardDetailsSide
+            appColor={appColor}
             onClick={() => {
               onClick();
               document.body.style.overflow = "auto";
@@ -56,6 +58,7 @@ const CardDetails = ({
             base_experience={base_experience}
           />
           <CardDetailsMain
+            appColor={appColor}
             held_items={held_items}
             moves={moves}
             name={name}

@@ -6,14 +6,15 @@ export const CardDetailsMainContainer = styled.div`
   align-items: center;
   min-width: 400px;
   width: 100%;
-  background-color: #4267b2;
+  background-color: ${({ appColor }) => appColor.basic};
+  transition: background-color 150ms ease-out;
 `;
 
 export const CardDetailsHeader = styled.div`
   width: 100%;
   height: 70px;
   min-height: 62.69px;
-  background-color: #4267b2;
+  background-color: ${({ appColor }) => appColor.basic};
   font-size: 30px;
   padding: 0 15px;
   display: flex;
@@ -21,6 +22,7 @@ export const CardDetailsHeader = styled.div`
   align-items: center;
   font-weight: 700;
   color: rgba(248, 248, 248, 0.6);
+  transition: background-color 150ms ease-out;
 `;
 
 export const CardDetailsMainContent = styled.div`

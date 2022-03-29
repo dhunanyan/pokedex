@@ -16,12 +16,12 @@ const getTranslateValue = () =>
     ? "translate(150px, 0)"
     : "translate(0, 0)";
 
-export const CardsWrapper = styled.div`
+export const CardsWrapper = styled.ul`
   display: flex;
   width: 100%;
   height: 100%;
   transition: all 250ms ease-out;
-  padding: 70px 0 0 0;
+  padding: 140px 0 70px 0;
   overflow: hidden;
 `;
 
@@ -104,7 +104,7 @@ export const CardsEmptyMessage = styled.p`
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: #303030;
+  color: #525252;
   margin: 120px auto;
   padding: 20px;
   border-radius: 20px;

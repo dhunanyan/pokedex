@@ -19,6 +19,7 @@ import { MdExpandMore as Arrow } from "react-icons/md";
 import { CSSTransition } from "react-transition-group";
 
 import "./search-header.animations.scss";
+import { Wrapper } from "../../global.styles.jsx";
 
 const SearchHeader = ({
   handleNameChange,
@@ -27,14 +28,16 @@ const SearchHeader = ({
   handleWeightEndChange,
   handleHeightStartChange,
   handleHeightEndChange,
+  appColor,
 }) => {
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
 
   return (
-    <SearchHeaderFixed>
+    <SearchHeaderFixed appColor={appColor}>
       <SearchHeaderWrapper>
         <SearchHeaderAdvancedButtonContainer>
           <SearchHeaderAdvancedButton
+            appColor={appColor}
             onClick={() =>
               setShowAdvancedSearch((showAdvancedSearch) => !showAdvancedSearch)
             }
@@ -69,7 +72,7 @@ const SearchHeader = ({
             classNames="advancedSearch"
             unmountOnExit
           >
-            <SearchHeaderToggle>
+            <SearchHeaderToggle appColor={appColor}>
               <SearchHeaderToggleInner>
                 <SearchBox
                   placeholder={"Min weight"}

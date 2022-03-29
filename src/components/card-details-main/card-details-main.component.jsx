@@ -10,10 +10,16 @@ import {
   CardDetailsStatsContainer,
 } from "./card-details-main.styles";
 
-const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
+const CardDetailsMain = ({
+  moves,
+  held_items,
+  name,
+  statsDetails,
+  appColor,
+}) => {
   return (
-    <CardDetailsMainContainer>
-      <CardDetailsHeader>
+    <CardDetailsMainContainer appColor={appColor}>
+      <CardDetailsHeader appColor={appColor}>
         {name[0].toUpperCase() + name.substring(1).replace(/-/g, " ")}
       </CardDetailsHeader>
 
@@ -24,6 +30,7 @@ const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
             objKey={"item"}
             name={"Held Items"}
             message={"No held items"}
+            appColor={appColor}
           />
           <CardDetailsStatsContainer>
             <CardDetailsMainTitle>
@@ -31,6 +38,7 @@ const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
             </CardDetailsMainTitle>
             {statsDetails.map((statDetails, index) => (
               <CardDetailsStats
+                appColor={appColor}
                 key={index}
                 map={statDetails}
                 increaseName={"name"}
@@ -52,6 +60,7 @@ const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
             </CardDetailsMainTitle>
             {statsDetails.map((statDetails, index) => (
               <CardDetailsStats
+                appColor={appColor}
                 key={index}
                 map={statDetails}
                 increaseName={"name"}
@@ -73,6 +82,7 @@ const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
             </CardDetailsMainTitle>
             {statsDetails.map((statDetails, index) => (
               <CardDetailsStats
+                appColor={appColor}
                 key={index}
                 map={statDetails}
                 affectingKey={"name"}
@@ -93,6 +103,7 @@ const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
             </CardDetailsMainTitle>
             {statsDetails.map((statDetails, index) => (
               <CardDetailsStats
+                appColor={appColor}
                 key={index}
                 map={statDetails}
                 affectingKey={"name"}
@@ -108,6 +119,7 @@ const CardDetailsMain = ({ moves, held_items, name, statsDetails }) => {
             ))}
           </CardDetailsStatsContainer>
           <CardDetailsItems
+            appColor={appColor}
             map={moves}
             objKey={"move"}
             name={"All moves"}

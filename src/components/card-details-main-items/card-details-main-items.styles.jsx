@@ -12,7 +12,7 @@ export const CardDetailsItemsButtonContainer = styled.button`
   border-radius: 50%;
   overflow: hidden;
   transition: all 150ms ease-out;
-  background-color: #4267b2;
+  background-color: ${({ appColor }) => appColor.basic};
   width: 35px;
   height: 35px;
 `;

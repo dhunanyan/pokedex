@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.li`
   height: 300px;
   width: calc(25% - 20px);
   margin: 10px;
@@ -51,7 +51,7 @@ export const CardContainer = styled.div`
     }
 
     h2 {
-      background-color: #4267b2;
+      background-color: ${({ appColor }) => appColor.basic};
       color: #f1f1f1;
       border-bottom: 10px solid #303030;
     }
@@ -184,7 +184,7 @@ export const CardDetailsButton = styled.button`
   height: 45px;
   font-size: 35px;
   color: #f1f1f1;
-  background-color: #4267b2;
+  background-color: ${({ appColor }) => appColor.basic};
   display: flex;
   justify-content: center;
   align-items: center;
