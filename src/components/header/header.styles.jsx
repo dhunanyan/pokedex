@@ -171,7 +171,7 @@ export const HeaderItem = styled.li`
       span {
         &:first-of-type {
           background: ${({ checked, isDark }) =>
-              isDark ? (checked ? HeaderThumbNight : HeaderThumbDay) : ""}
+              isDark ? (checked ? HeaderThumbDay : HeaderThumbNight) : ""}
             center center no-repeat;
           width: ${({ isDark }) => (isDark ? "30px" : "20px")};
           height: ${({ isDark }) => (isDark ? "30px" : "20px")};

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, Route, Routes } from "react-router";
 import "./App.css";
+import Footer from "./components/footer/footer.component";
 import Header from "./components/header/haeder.component";
 
 import { AppContainer, Main } from "./global.styles";
@@ -140,6 +141,7 @@ const App = () => {
           />
         </Routes>
       </Main>
+      <Footer />
     </AppContainer>
   );
 };

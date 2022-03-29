@@ -1,6 +1,4 @@
-import { Switch } from "@mui/material";
 import React, { useState } from "react";
-import { useSwitch } from "@mui/base/SwitchUnstyled";
 
 import { MdCatchingPokemon as LogoIcon } from "react-icons/md";
 import { AiFillStar as Star } from "react-icons/ai";
