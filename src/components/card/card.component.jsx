@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
   CardButtonFav,
@@ -28,7 +28,7 @@ import CardDetails from "../card-details/card-details.component";
 import { CSSTransition } from "react-transition-group";
 
 import "./card.animations.scss";
-import { selectFavsItemsForPreview } from "../../redux/favs/favs.selectors";
+
 import { addFav } from "../../redux/favs/favs.actions";
 
 import { firestore } from "../../firebase/firebase.utils";
