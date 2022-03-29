@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import cardsReducer from "./cards/cards.reducer";
+import userReducer from "./user/user.reducer";
 
 const persistConfig = {
   key: "root",
@@ -10,6 +11,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
+  user: userReducer,
   cardsCollection: cardsReducer,
 });
 

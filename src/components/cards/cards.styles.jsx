@@ -21,7 +21,7 @@ export const CardsWrapper = styled.ul`
   width: 100%;
   height: 100%;
   transition: all 250ms ease-out;
-  padding: 140px 0 70px 0;
+  padding: 30px 0;
   overflow: hidden;
 `;
 

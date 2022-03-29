@@ -3,15 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Wrapper } from "../../global.styles";
 
-const blue = {
-  700: "#0059B2",
-};
-
-const grey = {
-  400: "#BFC7CF",
-  800: "#2F3A45",
-};
-
 export const HeaderWrapper = styled.header`
   position: fixed;
   top: 0;
@@ -32,9 +23,11 @@ export const HeaderContainer = styled(Wrapper)`
   width: calc(100% - 60px);
 `;
 
-export const HeaderLogo = styled.div`
+export const HeaderLogo = styled(Link)`
   display: flex;
   align-items: center;
+  color: #f1f1f1;
+  text-decoration: none;
 `;
 
 export const HeaderLogoText = styled.p`
@@ -72,7 +65,7 @@ export const HeaderColorsList = styled.ul`
   border-radius: ${({ showColors }) => (showColors ? "20px" : "30px")};
   background-color: #fafae7;
   position: absolute;
-  right: 131px;
+  right: ${({ currentUser }) => (currentUser ? "239.5px" : "120px")};
   top: 50%;
   transform: translate(0, -50%);
   width: ${({ showColors }) => (showColors ? "250px" : "0px")};
@@ -90,19 +83,33 @@ export const HeaderColorsList = styled.ul`
 `;
 
 export const HeaderItem = styled.li`
+  display: flex;
+  align-items: center;
+  max-height: ${({ isCheckbox }) => (!isCheckbox ? "30px" : "48px")};
   display: ${({ isCheckbox }) => (!isCheckbox ? "flex" : "block")};
-  margin: ${({ isCheckbox }) => (isCheckbox ? "0 0px" : "0 20px")};
+  margin: ${({ isCheckbox }) => (isCheckbox ? "0 0px" : "0 10px")};
 
   &:first-of-type {
-    margin: ${({ isCheckbox }) => (isCheckbox ? "0 5px" : "0 20px 0 0")};
+    margin: ${({ isCheckbox }) => (isCheckbox ? "0 5px" : "0 10px")};
   }
 
   &:last-of-type {
-    margin: ${({ isCheckbox }) => (isCheckbox ? "0 5px" : "0 0 0 20px")};
+    margin: ${({ isCheckbox }) => (isCheckbox ? "0 5px" : "0 10px")};
   }
   .MuiSwitch-root {
     width: ${({ isDark }) => (isDark ? "68px" : "58px")};
-    padding: ${({ isDark }) => (isDark ? "10" : "12px")};
+    padding: ${({ isDark }) => (isDark ? "10px" : "12px")};
+  }
+
+  a {
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+  button {
+    height: 30px;
+    display: flex;
+    align-items: center;
   }
 
   span {
@@ -150,6 +157,7 @@ export const HeaderColorPicker = styled.button`
   }
 
   img {
+    transition: all 150ms ease-out;
     width: 100%;
   }
 
@@ -223,5 +231,20 @@ export const HeaderItemIcon = styled.div`
     transition: all 150ms ease-out;
     color: #f1f1f1;
     transform: scale(1);
+  }
+`;
+
+export const HeaderButton = styled.button`
+  background-color: transparent;
+  font-size: 20px;
+  color: #f1f1f1;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 5px;
+  display: flex;
+  transition: all 150ms ease-out;
+
+  &:hover {
+    color: #ffd300;
   }
 `;

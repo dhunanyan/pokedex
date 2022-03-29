@@ -8,6 +8,7 @@ import { AiFillStar as Star } from "react-icons/ai";
 import colorPicker from "../../assets/color-picker.png";
 
 import {
+  HeaderButton,
   HeaderColor,
   HeaderColorPicker,
   HeaderColorsList,
@@ -21,6 +22,8 @@ import {
   HeaderLogoText,
   HeaderWrapper,
 } from "./header.styles";
+import { useDispatch } from "react-redux";
+import { signOutStart } from "../../redux/user/user.actions";
 
 const Header = ({
   handleChangeGreen,
@@ -32,13 +35,16 @@ const Header = ({
   handleChangeBlack,
   checkedBlack,
   headerColors,
+  currentUser,
 }) => {
   const [showColors, setShowColors] = useState(false);
+  const dispatch = useDispatch();
+  const signOutStartDispatch = () => dispatch(signOutStart());
 
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <HeaderLogo>
+        <HeaderLogo to="/pokedex">
           <HeaderLogoIcon>
             <LogoIcon />
           </HeaderLogoIcon>
@@ -46,7 +52,7 @@ const Header = ({
         </HeaderLogo>
 
         <HeaderList>
-          <HeaderColorsList showColors={showColors}>
+          <HeaderColorsList showColors={showColors} currentUser={currentUser}>
             <HeaderItem
               checked={checkedBlack}
               isCheckbox={true}
@@ -99,14 +105,27 @@ const Header = ({
           >
             <img src={colorPicker} alt="Pick a color" />
           </HeaderColorPicker>
-          <HeaderItem isCheckbox={false}>
-            <HeaderLink to={"#"}>
-              Stars
-              <HeaderItemIcon>
-                <Star />
-              </HeaderItemIcon>
-            </HeaderLink>
-          </HeaderItem>
+          {currentUser ? (
+            <HeaderItem isCheckbox={false}>
+              <HeaderLink to={"#"}>
+                Stars
+                <HeaderItemIcon>
+                  <Star />
+                </HeaderItemIcon>
+              </HeaderLink>
+            </HeaderItem>
+          ) : null}
+          {currentUser ? (
+            <HeaderItem isCheckbox={false}>
+              <HeaderButton onClick={signOutStartDispatch}>
+                Sign out
+              </HeaderButton>
+            </HeaderItem>
+          ) : (
+            <HeaderItem isCheckbox={false}>
+              <HeaderLink to="/pokedex/signin">Sign in</HeaderLink>
+            </HeaderItem>
+          )}
         </HeaderList>
       </HeaderContainer>
     </HeaderWrapper>

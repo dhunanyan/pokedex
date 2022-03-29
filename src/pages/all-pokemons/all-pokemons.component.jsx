@@ -8,6 +8,9 @@ import SearchHeader from "../../components/search-header/search-header.component
 import Cards from "../../components/cards/cards.component";
 
 import { AllPokemonsContainer } from "./all-pokemons.styles";
+import Hero from "../../components/hero/hero.component";
+
+import signInHero from "../../assets/hero.jpg";
 
 const AllPokemons = ({ appColor }) => {
   const [nameField, setNameField] = useState("");
@@ -55,6 +58,11 @@ const AllPokemons = ({ appColor }) => {
         handleHeightStartChange={handleHeightStartChange}
         handleHeightEndChange={handleHeightEndChange}
         appColor={appColor}
+      />
+      <Hero
+        heroImageUrl={signInHero}
+        heroTitle={"Welcome to Pokédex"}
+        heroDescr={"Sign in to add pokemons to collection"}
       />
       <Cards
         appColor={appColor}
