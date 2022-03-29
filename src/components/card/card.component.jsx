@@ -109,34 +109,36 @@ const Card = ({ pokemon, index, appColor, curerntUser, favsItemsKeys }) => {
             ))}
           </CardList>
           <CardButtons>
-            {!favsItemsKeys.includes(`${pokemon.id}`) ? (
-              <CardButtonFav
-                appColor={appColor}
-                onClick={() => postDataHandler(pokemon)}
-              >
-                <CardButtonFavHeart>
-                  <Heart />
-                </CardButtonFavHeart>
-
-                <CSSTransition
-                  in={postSuccess}
-                  timeout={250}
-                  classNames="heart"
-                  unmountOnExit
+            {curerntUser ? (
+              !favsItemsKeys.includes(`${pokemon.id}`) ? (
+                <CardButtonFav
+                  appColor={appColor}
+                  onClick={() => postDataHandler(pokemon)}
                 >
-                  {postSuccess ? <HeartFilled /> : <Heart />}
-                </CSSTransition>
-              </CardButtonFav>
-            ) : (
-              <CardButtonFav
-                appColor={appColor}
-                onClick={() => postDataHandler(pokemon)}
-              >
-                <CardButtonFavHeart>
-                  <HeartFilled />
-                </CardButtonFavHeart>{" "}
-              </CardButtonFav>
-            )}
+                  <CardButtonFavHeart>
+                    <Heart />
+                  </CardButtonFavHeart>
+
+                  <CSSTransition
+                    in={postSuccess}
+                    timeout={250}
+                    classNames="heart"
+                    unmountOnExit
+                  >
+                    {postSuccess ? <HeartFilled /> : <Heart />}
+                  </CSSTransition>
+                </CardButtonFav>
+              ) : (
+                <CardButtonFav
+                  appColor={appColor}
+                  onClick={() => postDataHandler(pokemon)}
+                >
+                  <CardButtonFavHeart>
+                    <HeartFilled />
+                  </CardButtonFavHeart>{" "}
+                </CardButtonFav>
+              )
+            ) : null}
             <CardDetailsButton
               appColor={appColor}
               onClick={() => setShowDetails(true)}
