@@ -5,12 +5,10 @@ import {
   HeaderLogo,
   HeaderLogoIcon,
   HeaderLogoText,
-  HeaderWrapper,
 } from "../header/header.styles";
 
 export const FooterWrapper = styled.footer`
   width: 100%;
-  height: 70px;
   background-color: #303030;
   color: #f1f1f1;
 `;
@@ -20,7 +18,7 @@ export const FooterContainer = styled(Wrapper)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 30px;
+  padding: 20px 30px;
   height: 100%;
 `;
 

@@ -19,7 +19,6 @@ import { removeFav } from "../../redux/favs/favs.actions";
 const FavouritesCard = ({ favsItem, appColor, curerntUser }) => {
   const { name, weight, height, types, sprites, id, abilities } = favsItem;
   const imageUrl = sprites.other["official-artwork"].front_default;
-
   const dispatch = useDispatch();
 
   //DELETE

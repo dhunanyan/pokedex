@@ -2,6 +2,11 @@ import styled, { css } from "styled-components";
 import { CardsEmptyMessage } from "../../components/cards/cards.styles";
 import { Wrapper } from "../../global.styles";
 
+export const FavouritesCardWrapperLoading = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
 export const FavouritesWrapper = styled.div`
   padding: 70px 0 0 0;
   width: 100%;

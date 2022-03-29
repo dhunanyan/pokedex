@@ -10,3 +10,8 @@ export const selectFavsItems = createSelector(
 export const selectFavsItemsForPreview = createSelector([selectFavs], (favs) =>
   Object.values(favs.favsItems).length ? Object.values(favs.favsItems) : []
 );
+
+export const selectIsFavsItemsFetching = createSelector(
+  [selectFavsItems],
+  (favs) => favs.isFetching
+);
