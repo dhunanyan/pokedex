@@ -47,36 +47,48 @@ const Header = ({
 
         <HeaderList>
           <HeaderColorsList showColors={showColors}>
-            <HeaderItem isCheckbox={true}>
+            <HeaderItem
+              checked={checkedBlack}
+              isCheckbox={true}
+              thumbColor={headerColors.black}
+            >
               <HeaderColor
                 checked={checkedBlack}
                 onChange={handleChangeBlack}
                 inputProps={{ "aria-label": "controlled" }}
-                thumbColor={headerColors.black}
               />
             </HeaderItem>
-            <HeaderItem isCheckbox={true}>
+            <HeaderItem
+              checked={checkedPink}
+              isCheckbox={true}
+              thumbColor={headerColors.pink}
+            >
               <HeaderColor
                 checked={checkedPink}
                 onChange={handleChangePink}
                 inputProps={{ "aria-label": "controlled" }}
-                thumbColor={headerColors.pink}
               />
             </HeaderItem>
-            <HeaderItem isCheckbox={true}>
+            <HeaderItem
+              checked={checkedGreen}
+              isCheckbox={true}
+              thumbColor={headerColors.green}
+            >
               <HeaderColor
                 checked={checkedGreen}
                 onChange={handleChangeGreen}
                 inputProps={{ "aria-label": "controlled" }}
-                thumbColor={headerColors.green}
               />
             </HeaderItem>
-            <HeaderItem isCheckbox={true}>
+            <HeaderItem
+              checked={checkedRed}
+              isCheckbox={true}
+              thumbColor={headerColors.red}
+            >
               <HeaderColor
                 checked={checkedRed}
                 onChange={handleChangeRed}
                 inputProps={{ "aria-label": "controlled" }}
-                thumbColor={headerColors.red}
               />
             </HeaderItem>
           </HeaderColorsList>

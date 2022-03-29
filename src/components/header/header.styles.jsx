@@ -92,6 +92,21 @@ export const HeaderItem = styled.li`
   &:last-of-type {
     margin: ${({ isCheckbox }) => (isCheckbox ? "0 5px" : "0 0 0 20px")};
   }
+
+  span {
+    span {
+      span {
+        &:first-of-type {
+          background-color: ${({ checked, thumbColor, isCheckbox }) =>
+            isCheckbox
+              ? checked
+                ? thumbColor.basic
+                : thumbColor.secondary
+              : ""};
+        }
+      }
+    }
+  }
 `;
 
 export const HeaderColorPicker = styled.button`
@@ -146,16 +161,7 @@ export const HeaderColorPicker = styled.button`
   }
 `;
 
-export const HeaderColor = styled(Switch)`
-  span {
-    span {
-      &:first-of-type {
-        background-color: ${({ checked, thumbColor }) =>
-          checked ? thumbColor.basic : thumbColor.secondary};
-      }
-    }
-  }
-`;
+export const HeaderColor = styled(Switch)``;
 
 export const HeaderLink = styled(Link)`
   font-size: 20px;

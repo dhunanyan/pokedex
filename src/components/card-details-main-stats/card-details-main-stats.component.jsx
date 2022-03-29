@@ -17,8 +17,8 @@ import { IoIosArrowDown as Arrow } from "react-icons/io";
 
 const mapMoves = (map, objKey1, objKey2, objKey3, objKey4, appColor) =>
   map[objKey1][objKey2].length ? (
-    map[objKey1][objKey2].map((currentItem) => (
-      <CardDetailsItem appColor={appColor}>
+    map[objKey1][objKey2].map((currentItem, index) => (
+      <CardDetailsItem appColor={appColor} key={index}>
         {currentItem[objKey3][objKey4][0].toUpperCase() +
           currentItem[objKey3][objKey4].substring(1).replace(/-/g, " ")}
       </CardDetailsItem>
@@ -34,8 +34,8 @@ const mapMoves = (map, objKey1, objKey2, objKey3, objKey4, appColor) =>
 
 const mapNatures = (map, objKey1, objKey2, objKey3, appColor) =>
   map[objKey1][objKey2].length ? (
-    map[objKey1][objKey2].map((currentItem) => (
-      <CardDetailsItem appColor={appColor}>
+    map[objKey1][objKey2].map((currentItem, index) => (
+      <CardDetailsItem appColor={appColor} key={index}>
         {currentItem[objKey3][0].toUpperCase() +
           currentItem[objKey3].substring(1).replace(/-/g, " ")}
       </CardDetailsItem>

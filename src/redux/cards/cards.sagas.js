@@ -24,7 +24,17 @@ export function* fetchStatsAsync() {
       statsUrls.map((statsUrl) => call([statsUrl, "json"]))
     );
 
-    yield put(fetchStatsSuccess(statsMap));
+    const statsMapFiltered = statsMap.map((pokemonStats) => {
+      return {
+        affecting_moves: pokemonStats.affecting_moves,
+        affecting_natures: pokemonStats.affecting_natures,
+        id: pokemonStats.id,
+        move_damage_class: pokemonStats.move_damage_class,
+        name: pokemonStats.name,
+      };
+    });
+
+    yield put(fetchStatsSuccess(statsMapFiltered));
   } catch (error) {
     yield put(fetchStatsFailure(error));
   }
@@ -45,9 +55,24 @@ export function* fetchCardsAsync({ payload: fetchUrl }) {
       pokemonUrls.map((pokemonUrl) => call([pokemonUrl, "json"]))
     );
 
+    const cardsMapFiltered = cardsMap.map((pokemon) => {
+      return {
+        abilities: pokemon.abilities,
+        name: pokemon.name,
+        height: pokemon.height,
+        weight: pokemon.weight,
+        id: pokemon.id,
+        held_items: pokemon.held_items,
+        moves: pokemon.moves,
+        sprites: pokemon.sprites,
+        types: pokemon.types,
+        stats: pokemon.stats,
+      };
+    });
+
     // const loadMore = pokemonsData.next;
 
-    yield put(fetchCardsSuccess(cardsMap));
+    yield put(fetchCardsSuccess(cardsMapFiltered));
   } catch (error) {
     yield put(fetchCardsFailure(error));
   }

@@ -29,7 +29,7 @@ const App = () => {
     },
     black: {
       basic: "rgba(82,82,82,1)",
-      secondary: "rgba(103,99,89,1)",
+      secondary: "rgba(65,65,65,1)",
       other: "rgba(82,82,82,0.75)",
     },
   };

@@ -23,8 +23,8 @@ export const CardDetailsItems = ({ map, objKey, name, message, appColor }) => {
       </CardDetailsMainSubitle>
       <CardDetailsItemsList showMore={showMore} name={name}>
         {map.length ? (
-          map.map((currentItem) => (
-            <CardDetailsItem appColor={appColor}>
+          map.map((currentItem, index) => (
+            <CardDetailsItem key={index} appColor={appColor}>
               {currentItem[objKey].name[0].toUpperCase() +
                 currentItem[objKey].name.substring(1).replace(/-/g, " ")}
             </CardDetailsItem>
