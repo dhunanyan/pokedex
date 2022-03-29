@@ -1,20 +1,5 @@
-import { BeatLoader } from "react-spinners";
 import { TransitionGroup } from "react-transition-group";
 import styled from "styled-components";
-
-const getRandomBool = () => {
-  const randomNum = Math.random();
-  return randomNum < 0.5 ? false : 1;
-};
-
-const getTranslateValue = () =>
-  getRandomBool()
-    ? "translate(0, -150px)"
-    : getRandomBool()
-    ? "translate(0, 150px)"
-    : getRandomBool()
-    ? "translate(150px, 0)"
-    : "translate(0, 0)";
 
 export const CardsWrapper = styled.ul`
   display: flex;

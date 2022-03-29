@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { useSelector } from "react-redux";
-
 import {
   CardContainer,
   CardContent,
@@ -21,7 +19,6 @@ import CardDetails from "../card-details/card-details.component";
 import { CSSTransition } from "react-transition-group";
 
 import "./card.animations.scss";
-import { selectIsCardsFetching } from "../../redux/cards/cards.selectors";
 
 const Card = ({ pokemon, index, appColor }) => {
   const { id, name, sprites, types, height, weight } = pokemon;

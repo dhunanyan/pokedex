@@ -22,8 +22,7 @@ const CardDetails = ({
   appearDetails,
   appColor,
 }) => {
-  const { moves, sprites, stats, abilities, held_items, base_experience } =
-    pokemon;
+  const { moves, stats, abilities, held_items, base_experience } = pokemon;
 
   const dispatch = useDispatch();
   const statsDetails = useSelector(selectStatsForPreview);

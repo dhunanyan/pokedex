@@ -9,7 +9,6 @@ import {
 import {
   CardDetailsItemsButton,
   CardDetailsItemsButtonContainer,
-  CardDetailsItemsWrapper,
 } from "./card-details-main-items.styles";
 
 import { IoIosArrowDown as Arrow } from "react-icons/io";

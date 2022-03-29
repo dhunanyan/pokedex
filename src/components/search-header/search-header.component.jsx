@@ -4,7 +4,6 @@ import {
   SearchHeaderAdvancedButton,
   SearchHeaderAdvancedButtonContainer,
   SearchHeaderAdvancedButtonText,
-  SearchHeaderAdvancedIcon,
   SearchHeaderAdvancedIconContainer,
   SearchHeaderContainer,
   SearchHeaderFixed,
@@ -19,7 +18,6 @@ import { MdExpandMore as Arrow } from "react-icons/md";
 import { CSSTransition } from "react-transition-group";
 
 import "./search-header.animations.scss";
-import { Wrapper } from "../../global.styles.jsx";
 
 const SearchHeader = ({
   handleNameChange,

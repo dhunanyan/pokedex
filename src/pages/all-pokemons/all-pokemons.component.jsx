@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import { selectCardsForPreview } from "../../redux/cards/cards.selectors";
-import { fetchCardsStart } from "../../redux/cards/cards.actions";
+import React, { useState } from "react";
 
 import SearchHeader from "../../components/search-header/search-header.component";
 import Cards from "../../components/cards/cards.component";

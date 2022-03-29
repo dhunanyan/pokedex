@@ -1,5 +1,5 @@
 import React from "react";
-import { CardItem, CardList } from "../card/card.styles";
+
 import {
   CardDetailsExp,
   CardDetailsImg,

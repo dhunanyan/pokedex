@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import {
   selectCardsForPreview,
-  selectIsCardFetching,
   selectIsCardsFetching,
 } from "../../redux/cards/cards.selectors";
 
@@ -13,7 +12,6 @@ import {
   CardsContainer,
   CardsEmptyMessage,
   CardsLoading,
-  CardsPageLoading,
   CardsWrapper,
   LoadButton,
   LoadButtonContainer,

@@ -1,5 +1,4 @@
 import { takeLatest, call, put, all } from "redux-saga/effects";
-import { select } from "redux-saga/effects";
 
 import {
   fetchCardsFailure,
@@ -7,8 +6,6 @@ import {
   fetchStatsFailure,
   fetchStatsSuccess,
 } from "./cards.actions";
-
-import * as selectors from "./cards.selectors";
 
 import CardsActionTypes from "./cards.types";
 

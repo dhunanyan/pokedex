@@ -4,7 +4,6 @@ import {
   CardDetailsItemsContainer,
   CardDetailsItemsList,
   CardDetailsMainSubitle,
-  CardDetailsMainSubSubSubtitle,
   CardDetailsMainSubSubtitle,
   CardDetailsNoItem,
 } from "../../global.styles";

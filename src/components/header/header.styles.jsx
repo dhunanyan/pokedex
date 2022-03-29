@@ -58,6 +58,7 @@ export const HeaderContainer = styled(Wrapper)`
   padding: 0 30px;
   height: 100%;
   width: calc(100% - 60px);
+  position: relative;
 `;
 
 export const HeaderLogo = styled(Link)`

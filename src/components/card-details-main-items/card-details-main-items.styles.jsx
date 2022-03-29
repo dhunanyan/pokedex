@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const CardDetailsItemsWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
 export const CardDetailsItemsButtonContainer = styled.button`
   position: absolute;
   right: 4px;
