@@ -51,6 +51,7 @@ const Header = ({
               checked={checkedBlack}
               isCheckbox={true}
               thumbColor={headerColors.black}
+              isDark={true}
             >
               <HeaderColor
                 checked={checkedBlack}
