@@ -1,6 +1,6 @@
 # Pokédex API Mini-Project
 
-[Pokédex](https://www.dhunanyan.com/pokedex)
+# [Pokédex](https://www.dhunanyan.com/pokedex)
 
 ---
 
