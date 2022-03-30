@@ -47,6 +47,23 @@ export function* addFavsItemAsync({ payload: { curerntUser, currentFav } }) {
   }
 }
 
+export function* deleteFavsItemAsync({ payload: { curerntUser, currentFav } }) {
+  try {
+    const docRef = firestore
+      .collection("users")
+      .doc(curerntUser.id)
+      .collection("favs")
+      .where("id", "==", currentFav.id);
+
+    const snapshot = yield docRef.get();
+    yield snapshot.docs[0].ref.delete();
+
+    yield put(addFavsItemSuccess(true));
+  } catch (error) {
+    yield put(addFavsItemFailure(error));
+  }
+}
+
 export function* onFetchFavsItemsStart() {
   yield takeLatest(FavsActionTypes.FETCH_FAVS_ITEMS_START, fetchFavsItemsAsync);
 }
@@ -55,6 +72,14 @@ export function* onAddFavsItemStart() {
   yield takeLatest(FavsActionTypes.ADD_FAV_START, addFavsItemAsync);
 }
 
+export function* onDeleteFavsItemStart() {
+  yield takeLatest(FavsActionTypes.DELETE_FAV_START, deleteFavsItemAsync);
+}
+
 export function* favsItemsSagas() {
-  yield all([call(onFetchFavsItemsStart), call(onAddFavsItemStart)]);
+  yield all([
+    call(onFetchFavsItemsStart),
+    call(onAddFavsItemStart),
+    call(onDeleteFavsItemStart),
+  ]);
 }

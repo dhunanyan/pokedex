@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   favsItems: [],
   isFetching: false,
   isPosting: false,
+  isDeleting: false,
   errosMessage: undefined,
   postSuccess: false,
 };
@@ -44,12 +45,28 @@ const favsReducer = (state = INITIAL_STATE, action) => {
         isPosting: false,
         errosMessage: action.payload,
       };
+    case FavsActionTypes.DELETE_FAV_START:
+      return {
+        ...state,
+        isDeleting: true,
+      };
+    case FavsActionTypes.DELETE_FAV_SUCCESS:
+      return {
+        ...state,
+        isDeleting: false,
+      };
+    case FavsActionTypes.DELETE_FAV_FAILURE:
+      return {
+        ...state,
+        isDeleting: false,
+        errosMessage: action.payload,
+      };
     case FavsActionTypes.ADD_FAV_LOCAL:
       return {
         ...state,
         favsItems: addItemtoFavs(state.favsItems, action.payload),
       };
-    case FavsActionTypes.REMOVE_FAV:
+    case FavsActionTypes.DELETE_FAV_LOCAL:
       return {
         ...state,
         favsItems: removeItemFromFavs(state.favsItems, action.payload),

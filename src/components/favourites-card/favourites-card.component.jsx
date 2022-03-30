@@ -1,8 +1,7 @@
-import React from "react";
-import firebase from "firebase/compat/app";
+import React, { useState } from "react";
 
 import {
-  FavouritesButtonDelete,
+  FavouritesButton,
   FavouritesCardBio,
   FavouritesCardContainer,
   FavouritesCardContent,
@@ -13,33 +12,44 @@ import {
 } from "./favourites.styles";
 
 import { BsFillTrashFill as Trash } from "react-icons/bs";
+import { MdOutlineMoreHoriz as Expand } from "react-icons/md";
+
 import { useDispatch } from "react-redux";
-import { removeFav } from "../../redux/favs/favs.actions";
+import { deleteFavsItemStart, removeFav } from "../../redux/favs/favs.actions";
+import { CSSTransition } from "react-transition-group";
+import CardDetails from "../card-details/card-details.component";
 
 const FavouritesCard = ({ favsItem, appColor, curerntUser }) => {
-  const { name, weight, height, types, sprites, id, abilities } = favsItem;
+  const { name, weight, height, types, sprites, abilities } = favsItem;
   const imageUrl = sprites.other["official-artwork"].front_default;
   const dispatch = useDispatch();
+  const [showDetails, setShowDetails] = useState(false);
 
   //DELETE
-  //did not have enough time to convert POST into SAGA
-  const handleOnClick = (favsItem) => {
+  const handleOnClick = async (favsItem) => {
     dispatch(removeFav(favsItem));
-
-    firebase
-      .firestore()
-      .collection("users")
-      .doc(curerntUser.id)
-      .collection("favs")
-      .where("id", "==", id)
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.docs[0].ref.delete();
-      });
+    dispatch(deleteFavsItemStart(curerntUser, favsItem));
   };
 
   return (
     <FavouritesCardContainer>
+      <CSSTransition
+        in={showDetails}
+        timeout={250}
+        classNames="details"
+        unmountOnExit
+      >
+        <CardDetails
+          pokemon={favsItem}
+          name={name}
+          imageUrl={imageUrl}
+          types={types}
+          height={height}
+          weight={weight}
+          appColor={appColor}
+          onClick={() => setShowDetails(false)}
+        />
+      </CSSTransition>
       <FavouritesMainContainer>
         <FavouritesCardImgContainer appColor={appColor}>
           <FavouritesCardImg imageUrl={imageUrl} />
@@ -82,12 +92,19 @@ const FavouritesCard = ({ favsItem, appColor, curerntUser }) => {
           : null}
       </FavouritesCardContent>
 
-      <FavouritesButtonDelete
+      <FavouritesButton
+        appColor={appColor}
+        onClick={() => setShowDetails(true)}
+      >
+        <Expand />
+      </FavouritesButton>
+
+      <FavouritesButton
         appColor={appColor}
         onClick={() => handleOnClick(favsItem)}
       >
         <Trash />
-      </FavouritesButtonDelete>
+      </FavouritesButton>
     </FavouritesCardContainer>
   );
 };

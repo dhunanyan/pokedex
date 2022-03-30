@@ -90,7 +90,7 @@ export const FavouritesCardBio = styled.li`
   margin: 1px;
 `;
 
-export const FavouritesButtonDelete = styled.button`
+export const FavouritesButton = styled.button`
   font-size: 46px;
   padding: 5px;
   width: 66px;
@@ -102,6 +102,7 @@ export const FavouritesButtonDelete = styled.button`
   background-color: rgba(241, 241, 241, 0.5);
   color: #636363;
   transition: all 150ms ease-out;
+  margin: 0 0 0 8px;
 
   &:hover {
     background-color: rgba(241, 241, 241, 0.85);

@@ -23,15 +23,28 @@ import {
   AiFillHeart as HeartFilled,
   AiOutlineHeart as Heart,
 } from "react-icons/ai";
+import { BsFillTrashFill as Trash } from "react-icons/bs";
 
 import CardDetails from "../card-details/card-details.component";
 import { CSSTransition } from "react-transition-group";
 
 import "./card.animations.scss";
 
-import { addFav, addFavsItemStart } from "../../redux/favs/favs.actions";
+import {
+  addFav,
+  addFavsItemStart,
+  deleteFavsItemStart,
+  removeFav,
+} from "../../redux/favs/favs.actions";
 
-const Card = ({ pokemon, index, appColor, curerntUser, favsItemsIds }) => {
+const Card = ({
+  pokemon,
+  index,
+  appColor,
+  curerntUser,
+  favsItemsIds,
+  isInFavourites,
+}) => {
   const [showDetails, setShowDetails] = useState(false);
   const dispatch = useDispatch();
 
@@ -42,24 +55,16 @@ const Card = ({ pokemon, index, appColor, curerntUser, favsItemsIds }) => {
     name.length > 13 ? name.slice(0, 16) + "..." : name;
 
   //POST FAV
-  //did not have enough time to convert POST into SAGA
   const postDataHandler = (pokemon) => {
     dispatch(addFav(pokemon));
     dispatch(addFavsItemStart(curerntUser, pokemon));
-    // const batch = firestore.batch();
-    // const docRef = firestore
-    //   .collection("users")
-    //   .doc(`${curerntUser.id}`)
-    //   .collection("favs")
-    //   .doc(`${pokemon.id}`);
-
-    // docRef.set(pokemon);
-    // batch.commit().then(() => {
-    //   setPostSuccess(true);
-    // });
   };
 
-  console.log(favsItemsIds);
+  //DELETE FAV
+  const handleOnClick = async (favsItem) => {
+    dispatch(removeFav(favsItem));
+    dispatch(deleteFavsItemStart(curerntUser, favsItem));
+  };
 
   return (
     <CardWrapper
@@ -109,28 +114,37 @@ const Card = ({ pokemon, index, appColor, curerntUser, favsItemsIds }) => {
           </CardList>
           <CardButtons>
             {curerntUser ? (
-              <CardButtonFav
-                appColor={appColor}
-                onClick={() => postDataHandler(pokemon)}
-              >
-                <CardButtonFavHeart>
-                  <Heart />
-                </CardButtonFavHeart>
-                <CardButtonFavHeart>
-                  <CSSTransition
-                    in={favsItemsIds.includes(pokemon.id)}
-                    timeout={250}
-                    classNames="heart"
-                    unmountOnExit
-                  >
-                    {favsItemsIds.includes(pokemon.id) ? (
-                      <HeartFilled />
-                    ) : (
-                      <Heart />
-                    )}
-                  </CSSTransition>
-                </CardButtonFavHeart>
-              </CardButtonFav>
+              isInFavourites ? (
+                <CardButtonFav
+                  appColor={appColor}
+                  onClick={() => handleOnClick(pokemon)}
+                >
+                  <Trash />
+                </CardButtonFav>
+              ) : (
+                <CardButtonFav
+                  appColor={appColor}
+                  onClick={() => postDataHandler(pokemon)}
+                >
+                  <CardButtonFavHeart>
+                    <Heart />
+                  </CardButtonFavHeart>
+                  <CardButtonFavHeart>
+                    <CSSTransition
+                      in={favsItemsIds.includes(pokemon.id)}
+                      timeout={250}
+                      classNames="heart"
+                      unmountOnExit
+                    >
+                      {favsItemsIds.includes(pokemon.id) ? (
+                        <HeartFilled />
+                      ) : (
+                        <Heart />
+                      )}
+                    </CSSTransition>
+                  </CardButtonFavHeart>
+                </CardButtonFav>
+              )
             ) : null}
             <CardDetailsButton
               appColor={appColor}

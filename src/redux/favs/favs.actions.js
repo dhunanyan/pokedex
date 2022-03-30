@@ -30,13 +30,28 @@ export const addFavsItemFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const addFav = (item) => ({
-  type: FavsActionTypes.ADD_FAV_LOCAL,
-  payload: item,
+export const deleteFavsItemFailure = (errorMessage) => ({
+  type: FavsActionTypes.DELETE_FAV_FAILURE,
+  payload: errorMessage,
+});
+
+export const deleteFavsItemStart = (curerntUser, currentFav) => ({
+  type: FavsActionTypes.DELETE_FAV_START,
+  payload: { curerntUser, currentFav },
+});
+
+export const deleteFavsItemSuccess = (deleteSuccess) => ({
+  type: FavsActionTypes.DELETE_FAV_SUCCESS,
+  payload: deleteSuccess,
 });
 
 export const removeFav = (item) => ({
-  type: FavsActionTypes.REMOVE_FAV,
+  type: FavsActionTypes.DELETE_FAV_LOCAL,
+  payload: item,
+});
+
+export const addFav = (item) => ({
+  type: FavsActionTypes.ADD_FAV_LOCAL,
   payload: item,
 });
 

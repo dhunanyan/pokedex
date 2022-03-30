@@ -31,8 +31,6 @@ const Favourites = ({ appColor, curerntUser }) => {
     dispatch(fetchFavsItemsStart(curerntUser));
   }, [dispatch, curerntUser]);
 
-  console.log(favsItemsMap.length, isCardFetching);
-
   return (
     <FavouritesWrapper appColor={appColor}>
       <FavouritesContainer bigDisplay={true}>
@@ -64,6 +62,7 @@ const Favourites = ({ appColor, curerntUser }) => {
                     key={favsItem.id}
                     index={index}
                     appColor={appColor}
+                    isInFavourites={true}
                   />
                 ) : (
                   <FavouritesCard
