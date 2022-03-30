@@ -10,9 +10,9 @@ export const FavouritesCardWrapperLoading = styled.div`
 `;
 
 export const FavouritesWrapper = styled.div`
-  padding: 70px 0 0 0;
+  padding: 70px 0 96px 0;
   width: 100%;
-  min-height: calc(100vh);
+  min-height: calc(100vh - 166px);
   background-color: ${({ appColor }) => appColor.secondary};
   transition: background-color 150ms ease-out;
 `;
