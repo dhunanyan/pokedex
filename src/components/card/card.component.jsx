@@ -29,13 +29,10 @@ import { CSSTransition } from "react-transition-group";
 
 import "./card.animations.scss";
 
-import { addFav } from "../../redux/favs/favs.actions";
+import { addFav, addFavsItemStart } from "../../redux/favs/favs.actions";
 
-import { firestore } from "../../firebase/firebase.utils";
-
-const Card = ({ pokemon, index, appColor, curerntUser, favsItemsKeys }) => {
+const Card = ({ pokemon, index, appColor, curerntUser, favsItemsIds }) => {
   const [showDetails, setShowDetails] = useState(false);
-  const [postSuccess, setPostSuccess] = useState(false);
   const dispatch = useDispatch();
 
   const { id, name, sprites, types, height, weight } = pokemon;
@@ -48,19 +45,21 @@ const Card = ({ pokemon, index, appColor, curerntUser, favsItemsKeys }) => {
   //did not have enough time to convert POST into SAGA
   const postDataHandler = (pokemon) => {
     dispatch(addFav(pokemon));
+    dispatch(addFavsItemStart(curerntUser, pokemon));
+    // const batch = firestore.batch();
+    // const docRef = firestore
+    //   .collection("users")
+    //   .doc(`${curerntUser.id}`)
+    //   .collection("favs")
+    //   .doc(`${pokemon.id}`);
 
-    const batch = firestore.batch();
-    const docRef = firestore
-      .collection("users")
-      .doc(`${curerntUser.id}`)
-      .collection("favs")
-      .doc(`${pokemon.id}`);
-
-    docRef.set(pokemon);
-    batch.commit().then(() => {
-      setPostSuccess(true);
-    });
+    // docRef.set(pokemon);
+    // batch.commit().then(() => {
+    //   setPostSuccess(true);
+    // });
   };
+
+  console.log(favsItemsIds);
 
   return (
     <CardWrapper
@@ -110,34 +109,28 @@ const Card = ({ pokemon, index, appColor, curerntUser, favsItemsKeys }) => {
           </CardList>
           <CardButtons>
             {curerntUser ? (
-              !favsItemsKeys.includes(`${pokemon.id}`) ? (
-                <CardButtonFav
-                  appColor={appColor}
-                  onClick={() => postDataHandler(pokemon)}
-                >
-                  <CardButtonFavHeart>
-                    <Heart />
-                  </CardButtonFavHeart>
-
+              <CardButtonFav
+                appColor={appColor}
+                onClick={() => postDataHandler(pokemon)}
+              >
+                <CardButtonFavHeart>
+                  <Heart />
+                </CardButtonFavHeart>
+                <CardButtonFavHeart>
                   <CSSTransition
-                    in={postSuccess}
+                    in={favsItemsIds.includes(pokemon.id)}
                     timeout={250}
                     classNames="heart"
                     unmountOnExit
                   >
-                    {postSuccess ? <HeartFilled /> : <Heart />}
+                    {favsItemsIds.includes(pokemon.id) ? (
+                      <HeartFilled />
+                    ) : (
+                      <Heart />
+                    )}
                   </CSSTransition>
-                </CardButtonFav>
-              ) : (
-                <CardButtonFav
-                  appColor={appColor}
-                  onClick={() => postDataHandler(pokemon)}
-                >
-                  <CardButtonFavHeart>
-                    <HeartFilled />
-                  </CardButtonFavHeart>{" "}
-                </CardButtonFav>
-              )
+                </CardButtonFavHeart>
+              </CardButtonFav>
             ) : null}
             <CardDetailsButton
               appColor={appColor}

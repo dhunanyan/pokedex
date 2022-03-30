@@ -7,6 +7,7 @@ const {
   FETCH_STATS_START,
   FETCH_STATS_SUCCESS,
   FETCH_STATS_FAILURE,
+  FETCH_ADD_OFFSET,
 } = CardsActionTypes;
 
 export const fetchCardsStart = (fetchUrl) => ({
@@ -36,4 +37,8 @@ export const fetchStatsSuccess = (stats) => ({
 export const fetchStatsFailure = (errorMessage) => ({
   type: FETCH_STATS_FAILURE,
   payload: errorMessage,
+});
+
+export const fetchAddOffset = () => ({
+  type: FETCH_ADD_OFFSET,
 });

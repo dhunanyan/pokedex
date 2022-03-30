@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import {
   selectCardsForPreview,
+  selectCardsOffset,
   selectIsCardsFetching,
 } from "../../redux/cards/cards.selectors";
 
@@ -24,10 +25,14 @@ import { CSSTransition } from "react-transition-group";
 
 import "./cards.animations.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCardsStart } from "../../redux/cards/cards.actions";
+import {
+  fetchAddOffset,
+  fetchCardsStart,
+} from "../../redux/cards/cards.actions";
 import { Spinner } from "../with-spinner/with-spinner.component";
 import { fetchFavsItemsStart } from "../../redux/favs/favs.actions";
 import { selectFavsItemsForPreview } from "../../redux/favs/favs.selectors";
+import { useSelect } from "@mui/base";
 // import Loading from "../loading/loading.component";
 
 const Cards = ({
@@ -39,11 +44,10 @@ const Cards = ({
   curerntUser,
 }) => {
   const [pokemonsChange, setPokemonsChange] = useState(false);
-  const [fetchingOffset, setFetchingOffset] = useState(0);
   const [activeInfiniteScroll, setActiveInfiniteScroll] = useState(false);
   const favsItemsMap = useSelector(selectFavsItemsForPreview);
-  const favsItemsKeys = Object.keys(favsItemsMap);
-
+  const favsItemsIds = favsItemsMap.map((favsItem) => favsItem.id);
+  const fetchingOffset = useSelector(selectCardsOffset);
   const dispatch = useDispatch();
   const pokemons = useSelector(selectCardsForPreview);
   const isCardFetching = useSelector(selectIsCardsFetching);
@@ -62,10 +66,14 @@ const Cards = ({
       window.innerHeight >=
         document.scrollingElement.scrollHeight -
           document.documentElement.scrollTop &&
-      activeInfiniteScroll
+      fetchingOffset > 0
     ) {
-      setFetchingOffset((setFetchingOffset) => setFetchingOffset + 8);
+      dispatch(fetchAddOffset());
     }
+
+    return function cleanup() {
+      fetchingOffset(0);
+    };
   };
 
   const filteredPokemons = pokemons.filter(
@@ -109,7 +117,7 @@ const Cards = ({
                     key={pokemon.id}
                   >
                     <Card
-                      favsItemsKeys={favsItemsKeys}
+                      favsItemsIds={favsItemsIds}
                       curerntUser={curerntUser}
                       pokemon={pokemon}
                       key={pokemon.id}
@@ -139,9 +147,7 @@ const Cards = ({
               <LoadButton
                 onClick={() => {
                   setActiveInfiniteScroll(true);
-                  setFetchingOffset(
-                    (setFetchingOffset) => setFetchingOffset + 8
-                  );
+                  dispatch(fetchAddOffset());
                   setPokemonsChange(true);
                 }}
               >

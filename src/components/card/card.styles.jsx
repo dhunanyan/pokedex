@@ -198,13 +198,14 @@ export const CardButtonFav = styled.button`
   position: relative;
 
   svg {
+    pointer-events: none;
   }
 `;
 
 export const CardButtonFavHeart = styled.div`
   position: absolute;
-  top: 4.5px;
-  left: 4.5px;
+  top: 12.5%;
+  left: 12.5%;
 `;
 
 export const CardDetailsButton = styled.button`

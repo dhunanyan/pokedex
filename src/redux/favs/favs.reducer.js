@@ -4,7 +4,9 @@ import { addItemtoFavs, removeItemFromFavs } from "./favs.utils";
 const INITIAL_STATE = {
   favsItems: [],
   isFetching: false,
+  isPosting: false,
   errosMessage: undefined,
+  postSuccess: false,
 };
 
 const favsReducer = (state = INITIAL_STATE, action) => {
@@ -26,7 +28,23 @@ const favsReducer = (state = INITIAL_STATE, action) => {
         isFetching: false,
         errosMessage: action.payload,
       };
-    case FavsActionTypes.ADD_FAV:
+    case FavsActionTypes.ADD_FAV_START:
+      return {
+        ...state,
+        isPosting: true,
+      };
+    case FavsActionTypes.ADD_FAV_SUCCESS:
+      return {
+        ...state,
+        isPosting: false,
+      };
+    case FavsActionTypes.ADD_FAV_FAILURE:
+      return {
+        ...state,
+        isPosting: false,
+        errosMessage: action.payload,
+      };
+    case FavsActionTypes.ADD_FAV_LOCAL:
       return {
         ...state,
         favsItems: addItemtoFavs(state.favsItems, action.payload),

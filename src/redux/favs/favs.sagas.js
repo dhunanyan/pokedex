@@ -5,7 +5,12 @@ import {
   convertCardsSnapshotToMap,
 } from "../../firebase/firebase.utils";
 
-import { fetchFavsItemsSuccess, fetchFavsItemsFailure } from "./favs.actions";
+import {
+  fetchFavsItemsSuccess,
+  fetchFavsItemsFailure,
+  addFavsItemSuccess,
+  addFavsItemFailure,
+} from "./favs.actions";
 
 import FavsActionTypes from "./favs.types";
 
@@ -26,10 +31,30 @@ export function* fetchFavsItemsAsync({ payload: curerntUser }) {
   }
 }
 
+export function* addFavsItemAsync({ payload: { curerntUser, currentFav } }) {
+  try {
+    const docRef = firestore
+      .collection("users")
+      .doc(`${curerntUser.id}`)
+      .collection("favs")
+      .doc(`${currentFav.id}`);
+
+    yield docRef.set(currentFav);
+
+    yield put(addFavsItemSuccess(true));
+  } catch (error) {
+    yield put(addFavsItemFailure(error));
+  }
+}
+
 export function* onFetchFavsItemsStart() {
   yield takeLatest(FavsActionTypes.FETCH_FAVS_ITEMS_START, fetchFavsItemsAsync);
 }
 
+export function* onAddFavsItemStart() {
+  yield takeLatest(FavsActionTypes.ADD_FAV_START, addFavsItemAsync);
+}
+
 export function* favsItemsSagas() {
-  yield all([call(onFetchFavsItemsStart)]);
+  yield all([call(onFetchFavsItemsStart), call(onAddFavsItemStart)]);
 }

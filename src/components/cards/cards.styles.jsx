@@ -4,6 +4,7 @@ import { Wrapper } from "../../global.styles";
 
 export const CardsWrapperLoading = styled(Wrapper)`
   position: relative;
+  min-height: 500px;
 `;
 
 export const CardsWrapper = styled.ul`

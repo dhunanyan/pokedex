@@ -5,6 +5,8 @@ import { Wrapper } from "../../global.styles";
 export const FavouritesCardWrapperLoading = styled.div`
   position: relative;
   width: 100%;
+  min-height: 500px;
+  overflow-y: hidden;
 `;
 
 export const FavouritesWrapper = styled.div`
@@ -20,13 +22,14 @@ export const FavouritesContainer = styled(Wrapper)`
     bigDisplay ? bigDisplayStyleContainer : smallDisplayStyleContainer}
 `;
 
-export const FavouritesDisplayButtons = styled.button`
+export const FavouritesDisplayButtons = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 20px;
   padding: 5px;
   margin: 0 10px 0 auto;
+  background-color: rgba(241, 241, 241, 0.95);
 `;
 
 export const FavouritesDisplayButton = styled.button`

@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   stats: [],
   isFetching: false,
   errorMessage: undefined,
+  fetchOffset: 0,
 };
 
 const {
@@ -15,6 +16,7 @@ const {
   FETCH_STATS_START,
   FETCH_STATS_SUCCESS,
   FETCH_STATS_FAILURE,
+  FETCH_ADD_OFFSET,
 } = CardsActionTypes;
 
 const cardsReducer = (state = INITIAL_STATE, action) => {
@@ -43,6 +45,11 @@ const cardsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isFetching: false,
         errorMessage: action.payload,
+      };
+    case FETCH_ADD_OFFSET:
+      return {
+        ...state,
+        fetchOffset: state.fetchOffset + 8,
       };
     default:
       return state;

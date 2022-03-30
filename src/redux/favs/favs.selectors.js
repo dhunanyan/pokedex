@@ -12,6 +12,11 @@ export const selectFavsItemsForPreview = createSelector([selectFavs], (favs) =>
 );
 
 export const selectIsFavsItemsFetching = createSelector(
-  [selectFavsItems],
+  [selectFavs],
   (favs) => favs.isFetching
+);
+
+export const selectIsFavsItemsPosted = createSelector(
+  [selectFavs],
+  (favs) => favs.postSuccess
 );

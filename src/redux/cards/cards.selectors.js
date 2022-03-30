@@ -13,6 +13,11 @@ export const selectCards = createSelector(
   (cardsCollection) => cardsCollection.cards
 );
 
+export const selectCardsOffset = createSelector(
+  [selectCardsCollection],
+  (cardsCollection) => cardsCollection.fetchOffset
+);
+
 export const selectStats = createSelector(
   [selectCardsCollection],
   (cardsCollection) => cardsCollection.stats

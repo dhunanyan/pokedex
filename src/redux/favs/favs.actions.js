@@ -15,8 +15,23 @@ export const fetchFavsItemsFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
+export const addFavsItemStart = (curerntUser, currentFav) => ({
+  type: FavsActionTypes.ADD_FAV_START,
+  payload: { curerntUser, currentFav },
+});
+
+export const addFavsItemSuccess = (addSuccess) => ({
+  type: FavsActionTypes.ADD_FAV_SUCCESS,
+  payload: addSuccess,
+});
+
+export const addFavsItemFailure = (errorMessage) => ({
+  type: FavsActionTypes.ADD_FAV_FAILURE,
+  payload: errorMessage,
+});
+
 export const addFav = (item) => ({
-  type: FavsActionTypes.ADD_FAV,
+  type: FavsActionTypes.ADD_FAV_LOCAL,
   payload: item,
 });
 
