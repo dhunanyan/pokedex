@@ -34,9 +34,20 @@ If you do not want to sign up, I have created an account for you:
 
 > ## Main problems
 > - No cross browser testings
-> - No media queries for tablets and phones (wille be fixed soon)
-> - No option of unliking with the liking button (alse will be fixed soon)
-> - No road to 'stats' (the more detailed get request) from favourites
-> - Poor design of header/footer items hover in dark mode (wille be fixed soon)
-> - Long loading 'hero' images
-> - No animation for item removement from favourites (wille be fixed soon)
+> - No media queries for tablets and phones (wille be fixed soon).
+> - No option of unliking with the liking button (alse will be fixed soon).
+> - No road to 'stats' (the more detailed get request) from favourites.
+> - Poor design of header/footer items hover in dark mode (wille be fixed soon).
+> - Long loading 'hero' images.
+> - No animation for item removement from favourites (wille be fixed soon).
+
+---
+
+> ## Summary
+> I will try to solve all the above-mentioned problems until the deadline (30.03.2022 / 13:38).
+> Hope that the code i wrote wont be very chaotic for you.
+> It could be a much more bigger project if I had less classes in University.
+
+---
+
+# Checkout My Portfolio ---> [Davit Hunanyan](https://www.dhunanyan.com/)
