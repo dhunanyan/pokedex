@@ -34,7 +34,7 @@ You may either sign up or log in using the following credentials:
 
 > ## Focus items
 > - Cross browser testing not conducted
-> - No 'media queries' for tablets and phones to be fixed.
+> - No 'media queries' for tablets and phones set - to be fixed.
 > - Accessing 'stats' (the more detailed get request) from 'favourites' to be developed.
 > - Unselecting of the 'favourite' items to be enabled trough **'Tiles'** view.
 > - Animation to remove items from 'favourites' to be added.
