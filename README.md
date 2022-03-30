@@ -1,7 +1,7 @@
-# Pokédex API Mini-Project - VirtusLab Reqruitment
+# Pokédex API Mini-Project - VirtusLab Recruitment
 
 # Checkout the website ---> [Pokédex](https://www.dhunanyan.com/pokedex)
-If you do not want to sign up, I have created an account for you:
+You may either sign up or log in using the following credentials:
 >## ***LOGIN: virtus@lab.com***     
 >## ***PASSWORD: virtuslab2022***
 
@@ -10,14 +10,14 @@ If you do not want to sign up, I have created an account for you:
 > ## Main functionality
 > - Get requests for basic information from Pokedex API.
 > - Get requests for detailed information from Pokedex API.
-> - **Load more** option. After pressing first time button it would be enough to scroll to get more data (based on official Pokédex website).
-> - Filtering SearchBoxes (Standard, Advanced).
-> - E-mail and Google Sign-in panel, E-mail and Google Sign-up panel (Firebase post requests).
-> - **Add to favourites** and **Delete from Favourites** options (Firebase set and get requests) - ***each account has his own favourites list***.
-> - Favourites list display choice - *Big tiles* or *Small lines*.
-> - *Dark morde* and *4 other color themes*.
-> - Custom SCSS (and not only) **Loading Spinners**.
-> - Custom SCSS and JS **animations** based on official Pokédex website.
+> - **'Load more'** option - trough clicking the button just once and then just scrolling down, more data will be displayed (similar function is available on official Pokédex website).
+> - Filter trough SearchBoxes (***Standard, Advanced***).
+> - E-mail and Google Sign-in panel, E-mail and Google Sign-up panel (Firebase 'add' requests).
+> - **'Add to favourites'** and **'Delete from Favourites'** options (Firebase 'set', 'add' and 'get' requests) - ***each account has its own 'favourites' list***.
+> - 'Favourites' list can be displayed either as *Tiles* or *Lines* - selection is available.
+> - *Dark mode* and *4 other color themes*.
+> - Custom SCSS (and not only) **'Loading Spinners'**.
+> - Custom SCSS and JS **animation** (similar animation is available on official Pokédex website)
 > - Modern UI
 
 ---
@@ -32,21 +32,17 @@ If you do not want to sign up, I have created an account for you:
 
 ---
 
-> ## Main problems
-> - No cross browser testings
-> - No media queries for tablets and phones (wille be fixed soon).
-> - No option of unliking with the liking button (alse will be fixed soon).
-> - No road to 'stats' (the more detailed get request) from favourites.
-> - Poor design of header/footer items hover in dark mode (wille be fixed soon).
-> - Long loading 'hero' images.
-> - No animation for item removement from favourites (wille be fixed soon).
+> ## Focus items
+> - Cross browser testing not conducted
+> - No media queries for tablets and phones to be fixed.
+> - Accessing 'stats' (the more detailed get request) from 'favourites' to be developed.
+> - Unselecting of the 'favourite' items to be enabled trough **'Tiles'** view.
+> - Animation to remove items from 'favourites' to be added.
 
 ---
 
-> ## Summary
-> - I will try to solve all the above-mentioned problems until the deadline (30.03.2022 / 13:38).
-> - Hope that the code i wrote wont be very chaotic for you.
-> - It could be a much more bigger project if I had less classes in University.
+> ## PS
+> - More time could be invested to develop more functionality, should I have less workload in the University.
 
 ---
 
