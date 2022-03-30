@@ -1,9 +1,9 @@
 # Pokédex API Mini-Project - VirtusLab Reqruitment
 
 # Checkout the website ---> [Pokédex](https://www.dhunanyan.com/pokedex)
-If you do not want to sign up you, I have a created account for you
-> LOGIN: virtus@lab.com   
-> PASSWORD: virtuslab2022
+If you do not want to sign up, I have created an account for you:
+> ***LOGIN: virtus@lab.com*** 
+> ***PASSWORD: virtuslab2022***
 
 ---
 
