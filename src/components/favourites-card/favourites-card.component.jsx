@@ -5,6 +5,7 @@ import {
   FavouritesCardBio,
   FavouritesCardContainer,
   FavouritesCardContent,
+  FavouritesCardContentContainer,
   FavouritesCardImg,
   FavouritesCardImgContainer,
   FavouritesCardName,
@@ -55,43 +56,48 @@ const FavouritesCard = ({ favsItem, appColor, curerntUser }) => {
           <FavouritesCardImg imageUrl={imageUrl} />
         </FavouritesCardImgContainer>
       </FavouritesMainContainer>
-      <FavouritesCardContent>
+      <FavouritesCardContent isTitle={true}>
         <FavouritesCardName>
           {name[0].toUpperCase() + name.substring(1).replace(/-/g, " ")}
         </FavouritesCardName>
       </FavouritesCardContent>
 
-      <FavouritesCardContent>
-        <FavouritesCardBio>Weight: {weight}lbs</FavouritesCardBio>
-        <FavouritesCardBio>Height: {height}"</FavouritesCardBio>
-      </FavouritesCardContent>
+      <FavouritesCardContentContainer>
+        <FavouritesCardContent>
+          <FavouritesCardBio>Weight: {weight}lbs</FavouritesCardBio>
+          <FavouritesCardBio>Height: {height}"</FavouritesCardBio>
+        </FavouritesCardContent>
 
-      <FavouritesCardContent isTypes={true} className="types">
-        {types.length
-          ? types.map((currentType, index) => (
-              <FavouritesCardBio appColor={appColor} isTypes={true} key={index}>
-                {currentType.type.name[0].toUpperCase() +
-                  name.substring(1).replace(/-/g, " ")}
-              </FavouritesCardBio>
-            ))
-          : null}
-      </FavouritesCardContent>
+        <FavouritesCardContent isTypes={true} className="types">
+          {types.length
+            ? types.map((currentType, index) => (
+                <FavouritesCardBio
+                  appColor={appColor}
+                  isTypes={true}
+                  key={index}
+                >
+                  {currentType.type.name[0].toUpperCase() +
+                    name.substring(1).replace(/-/g, " ")}
+                </FavouritesCardBio>
+              ))
+            : null}
+        </FavouritesCardContent>
 
-      <FavouritesCardContent isAbility={true} className="types">
-        {abilities.length
-          ? abilities.map((currentAbility, index) => (
-              <FavouritesCardBio
-                appColor={appColor}
-                isAbility={true}
-                key={index}
-              >
-                {currentAbility.ability.name[0].toUpperCase() +
-                  name.substring(1).replace(/-/g, " ")}
-              </FavouritesCardBio>
-            ))
-          : null}
-      </FavouritesCardContent>
-
+        <FavouritesCardContent isAbility={true} className="types">
+          {abilities.length
+            ? abilities.map((currentAbility, index) => (
+                <FavouritesCardBio
+                  appColor={appColor}
+                  isAbility={true}
+                  key={index}
+                >
+                  {currentAbility.ability.name[0].toUpperCase() +
+                    name.substring(1).replace(/-/g, " ")}
+                </FavouritesCardBio>
+              ))
+            : null}
+        </FavouritesCardContent>
+      </FavouritesCardContentContainer>
       <FavouritesButton
         appColor={appColor}
         onClick={() => setShowDetails(true)}

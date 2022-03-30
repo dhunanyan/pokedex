@@ -49,16 +49,25 @@ export const FavouritesCardName = styled.h3`
   color: #f1f1f1;
 `;
 
+export const FavouritesCardContentContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+`;
+
 export const FavouritesCardContent = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
+  flex-flow: column wrap;
   padding: 5px;
   border-radius: 10px;
   background-color: rgba(241, 241, 241, 0.5);
-  ${({ isTypes }) => (isTypes ? typesStyles : null)}
-  ${({ isAbility }) => (isAbility ? abilitiesStyles : null)}
+  margin: 0 4px;
+  height: 52px;
+  width: ${({ isTitle }) => (isTitle ? "max-content" : "100%")};
 `;
 
 const typesStyles = css`
@@ -88,13 +97,18 @@ export const FavouritesCardBio = styled.li`
       ? appColor.secondary
       : "rgba(68, 68, 68, 1)"};
   margin: 1px;
+  height: 14px;
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const FavouritesButton = styled.button`
   font-size: 46px;
   padding: 5px;
-  width: 66px;
-  height: 66px;
+  width: 62px;
+  height: 62px;
   display: flex;
   justify-content: center;
   align-items: center;
