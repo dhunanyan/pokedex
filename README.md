@@ -44,9 +44,9 @@ If you do not want to sign up, I have created an account for you:
 ---
 
 > ## Summary
-> I will try to solve all the above-mentioned problems until the deadline (30.03.2022 / 13:38).
-> Hope that the code i wrote wont be very chaotic for you.
-> It could be a much more bigger project if I had less classes in University.
+> - I will try to solve all the above-mentioned problems until the deadline (30.03.2022 / 13:38).
+> - Hope that the code i wrote wont be very chaotic for you.
+> - It could be a much more bigger project if I had less classes in University.
 
 ---
 
