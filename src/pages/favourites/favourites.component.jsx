@@ -51,7 +51,7 @@ const Favourites = ({ appColor, curerntUser }) => {
           </FavouritesDisplayButton>
         </FavouritesDisplayButtons>
         <FavouritesCardWrapperLoading>
-          {isCardFetching || favsItemsMap.length === 0 ? (
+          {isCardFetching ? (
             <Spinner />
           ) : favsItemsMap.length ? (
             <FavouritesCards bigDisplay={true}>

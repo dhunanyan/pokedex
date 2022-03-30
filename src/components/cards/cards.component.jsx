@@ -32,7 +32,6 @@ import {
 import { Spinner } from "../with-spinner/with-spinner.component";
 import { fetchFavsItemsStart } from "../../redux/favs/favs.actions";
 import { selectFavsItemsForPreview } from "../../redux/favs/favs.selectors";
-import { useSelect } from "@mui/base";
 // import Loading from "../loading/loading.component";
 
 const Cards = ({
@@ -44,7 +43,6 @@ const Cards = ({
   curerntUser,
 }) => {
   const [pokemonsChange, setPokemonsChange] = useState(false);
-  const [activeInfiniteScroll, setActiveInfiniteScroll] = useState(false);
   const favsItemsMap = useSelector(selectFavsItemsForPreview);
   const favsItemsIds = favsItemsMap.map((favsItem) => favsItem.id);
   const fetchingOffset = useSelector(selectCardsOffset);
@@ -146,7 +144,6 @@ const Cards = ({
             <LoadButtonContainer>
               <LoadButton
                 onClick={() => {
-                  setActiveInfiniteScroll(true);
                   dispatch(fetchAddOffset());
                   setPokemonsChange(true);
                 }}
