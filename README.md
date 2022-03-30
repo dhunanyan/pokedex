@@ -2,8 +2,8 @@
 
 # Checkout the website ---> [Pokédex](https://www.dhunanyan.com/pokedex)
 If you do not want to sign up you, I have a created account for you
-[1]LOGIN: virtus@lab.com
-[2]PASSWORD: virtuslab2022
+[1] LOGIN: virtus@lab.com
+[2] PASSWORD: virtuslab2022
 
 ---
 
