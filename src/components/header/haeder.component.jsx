@@ -45,7 +45,7 @@ const Header = ({
     <HeaderWrapper>
       <HeaderContainer>
         <HeaderItemColor appColor={appColor}>
-          <HeaderLogo to="/pokedex">
+          <HeaderLogo to="/">
             <HeaderLogoIcon>
               <LogoIcon />
             </HeaderLogoIcon>
@@ -110,7 +110,7 @@ const Header = ({
           {currentUser ? (
             <HeaderItem isCheckbox={false}>
               <HeaderItemColor appColor={appColor}>
-                <HeaderLink to={"/pokedex/favourites"}>
+                <HeaderLink to={"/favourites"}>
                   Favourites
                   <HeaderItemIcon>
                     <Heart />
@@ -128,7 +128,7 @@ const Header = ({
           ) : (
             <HeaderItem isCheckbox={false}>
               <HeaderItemColor appColor={appColor}>
-                <HeaderLink to="/pokedex/signin">Sign in</HeaderLink>
+                <HeaderLink to="/signin">Sign in</HeaderLink>
               </HeaderItemColor>
             </HeaderItem>
           )}

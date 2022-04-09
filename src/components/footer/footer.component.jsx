@@ -18,7 +18,7 @@ const Footer = ({ appColor }) => {
     <FooterWrapper>
       <FooterContainer>
         <FooterItemColor appColor={appColor}>
-          <FooterLogo to="/pokedex">
+          <FooterLogo to="/">
             <FooterLogoIcon>
               <LogoIcon />
             </FooterLogoIcon>

@@ -119,7 +119,7 @@ const App = () => {
         <Routes>
           <Route
             exact
-            path="/pokedex"
+            path="/"
             element={
               <AllPokemons
                 curerntUser={curerntUser}
@@ -133,7 +133,7 @@ const App = () => {
             }
           />
           <Route
-            path="/pokedex/favourites"
+            path="/favourites"
             element={
               <Favourites
                 curerntUser={curerntUser}
@@ -147,10 +147,10 @@ const App = () => {
             }
           />
           <Route
-            path="/pokedex/signin"
+            path="/signin"
             element={
               currentUser ? (
-                <Navigate replace to="/pokedex" />
+                <Navigate replace to="/" />
               ) : (
                 <SigninAndSignupPage
                   appColor={getAppColor(
